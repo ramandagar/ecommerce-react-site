@@ -1,0 +1,42 @@
+nav {
+    display: none;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 60px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icons > * {
+    width: 20px;
+    height: auto;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    nav {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+    }
+}
