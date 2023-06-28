@@ -1,18 +1,20 @@
-nav {
-    display: none;
-}
-
-ul {
-    list-style: none;
-    display: flex;
-    gap: 60px;
-}
-
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    /* position: absolute;
+    width: 100%; */
+}
+
+nav {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 60px;
 }
 
 h1 {
@@ -23,11 +25,35 @@ h1 {
 .icons {
     display: flex;
     gap: 10px;
+    position: relative;
 }
 
 .icons > * {
     width: 20px;
     height: auto;
+}
+
+.menu,
+.cart {
+    cursor: pointer;
+}
+
+.dropDown {
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    padding-right: 20px;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: auto;
+}
+
+.dropDown ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: end;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -36,7 +62,8 @@ h1 {
         display: block;
     }
 
-    .menu {
+    .menu,
+    .dropDown {
         display: none;
     }
 }
