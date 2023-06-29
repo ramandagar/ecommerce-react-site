@@ -1,14 +1,14 @@
 import Header from "../components/Header";
 
-const Men = () => {
+const Home = () => {
     return (
         <>
             <Header />
             <main>
-                <h1>Men page</h1>
+                <h1>Home page</h1>
             </main>
         </>
     );
 }
 
-export default Men;
+export default Home;

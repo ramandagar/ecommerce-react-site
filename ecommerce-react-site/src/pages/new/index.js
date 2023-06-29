@@ -4,7 +4,9 @@ const New = () => {
     return (
         <>
             <Header />
-            <h1>New page</h1>
+            <main>
+                <h1>New page</h1>
+            </main>
         </>
     );
 }

@@ -4,7 +4,9 @@ const Kids = () => {
     return (
         <>
             <Header />
-            <h1>Kids page</h1>
+            <main>
+                <h1>Kids page</h1>
+            </main>
         </>
     );
 }

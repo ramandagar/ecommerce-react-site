@@ -4,7 +4,9 @@ const Cart = () => {
     return (
         <>
             <Header />
-            <h1>Cart page</h1>
+            <main>
+                <h1>Cart page</h1>
+            </main>
         </>
     );
 }

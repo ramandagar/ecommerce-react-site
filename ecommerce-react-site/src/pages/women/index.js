@@ -4,7 +4,9 @@ const Women = () => {
     return (
         <>
             <Header />
-            <h1>Women page</h1>
+            <main>
+                <h1>Women page</h1>
+            </main>
         </>
     );
 }
