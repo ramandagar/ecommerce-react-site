@@ -18,9 +18,27 @@ main {
 
 .catalog {
     display: grid;
+    gap: 20px;
 }
 
-.catalog img {
-    object-fit: cover;
-    width: 100%;
+@media only screen and (min-width: 600px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .catalog {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .catalog {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+
 }
