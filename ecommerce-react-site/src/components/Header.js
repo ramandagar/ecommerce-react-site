@@ -23,7 +23,7 @@ const DropDown = ({toggle}) => {
 const Header = () => {
     let [toggleDropDown, setToggleDropDown] = useState(false);
     return (
-        <header>
+        <header className={HeaderCSS.header}>
             <div>
                 <Link to="/" style={{textDecoration: 'none', color: 'black'}}><h1 className={HeaderCSS.title}>NAME</h1></Link>
                 <nav>
