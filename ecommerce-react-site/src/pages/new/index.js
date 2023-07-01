@@ -19,7 +19,6 @@ const New = () => {
         <>
             <Header />
             <main>
-                <h1>New page</h1>
                 <div className='catalog'>
                     {products.map((product) => (
                         <ItemCard 

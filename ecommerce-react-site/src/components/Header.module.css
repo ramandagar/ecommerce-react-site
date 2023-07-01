@@ -11,30 +11,32 @@
     align-items: center;
     padding: 10px 0px;
     width: 95%;
+    max-width: 1360px;
     margin-left: auto;
     margin-right: auto;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid;
 }
 
-nav {
+nav > * {
     display: none;
+    color: black;
+    text-decoration: none;
 }
 
-.header nav ul {
+.header nav {
     list-style: none;
     display: flex;
     gap: 60px;
     margin: 0;
 }
 
-.header li {
+.header {
     color: black;
 }
 
-.header h1 {
-    margin: 0;
-    padding: 0;
-}
+/* .header a.active {
+    border-bottom: 1px solid;
+} */
 
 .icons {
     display: flex;
@@ -51,26 +53,27 @@ nav {
 }
 
 .dropDown {
-    background-color: rgb(240, 240, 240);
-    border-radius: 10px;
-    padding-right: 20px;
+    /* background-color: rgb(240, 240, 240); */
+    background-color: white;
+    border: 1px solid;
+    padding: 20px;
     position: absolute;
-    top: 50px;
-    right: 0;
-    width: auto;
-}
-
-.dropDown ul {
-    list-style: none;
+    top: 30px;
+    right: 30px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     align-items: end;
+    gap: 10px;
+}
+
+.dropDown > * {
+    color: black;
+    text-decoration: none;
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    nav {
+    nav > * {
         display: block;
     }
 

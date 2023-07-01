@@ -1,8 +1,8 @@
 import { useState } from "react";
 import HeaderCSS from './Header.module.css'
-import { BiSolidCart } from "react-icons/bi";
-import { GiHamburgerMenu } from "react-icons/gi"
-import { Link } from "react-router-dom"
+import { RxHamburgerMenu } from "react-icons/rx"
+import { NavLink, Link } from "react-router-dom"
+import { PiBagLight } from "react-icons/pi";
 
 const DropDown = ({toggle}) => {
     if (!toggle) {
@@ -10,12 +10,10 @@ const DropDown = ({toggle}) => {
     }
     return (
         <div className={HeaderCSS.dropDown}>
-            <ul>
-                <Link to="/new" style={{textDecoration: 'none'}}><li>NEW</li></Link>
-                <Link to="/men" style={{textDecoration: 'none'}}><li>MEN</li></Link>
-                <Link to="/women" style={{textDecoration: 'none'}}><li>WOMEN</li></Link>
-                <Link to="/kids" style={{textDecoration: 'none'}}><li>KIDS</li></Link>
-            </ul>
+            <NavLink to="/new" >NEW</NavLink>
+            <NavLink to="/men" >MEN</NavLink>
+            <NavLink to="/women" >WOMEN</NavLink>
+            <NavLink to="/kids" >KIDS</NavLink>
         </div>
     );
 }
@@ -25,18 +23,16 @@ const Header = () => {
     return (
         <header className={HeaderCSS.header}>
             <div>
-                <Link to="/" style={{textDecoration: 'none', color: 'black'}}><h1 className={HeaderCSS.title}>NAME</h1></Link>
+                <NavLink to="/" style={{textDecoration: 'none', color: 'black'}}><h1 className={HeaderCSS.title}>NAME</h1></NavLink>
                 <nav>
-                    <ul>
-                        <Link to="/new" style={{textDecoration: 'none'}}><li>NEW</li></Link>
-                        <Link to="/men" style={{textDecoration: 'none'}}><li>MEN</li></Link>
-                        <Link to="/women" style={{textDecoration: 'none'}}><li>WOMEN</li></Link>
-                        <Link to="/kids" style={{textDecoration: 'none'}}><li>KIDS</li></Link>
-                    </ul>
+                    <NavLink to="/new" >NEW</NavLink>
+                    <NavLink to="/men" >MEN</NavLink>
+                    <NavLink to="/women" >WOMEN</NavLink>
+                    <NavLink to="/kids" >KIDS</NavLink>
                 </nav>
                 <div className={HeaderCSS.icons}>
-                    <GiHamburgerMenu className={HeaderCSS.menu} onClick={() => setToggleDropDown(!toggleDropDown)}/>
-                    <Link to="/cart" style={{display: "flex"}}><BiSolidCart className={HeaderCSS.cart}/></Link>
+                    <RxHamburgerMenu className={HeaderCSS.menu} onClick={() => setToggleDropDown(!toggleDropDown)}/>
+                    <Link to="/cart" style={{display: "flex"}}><PiBagLight className={HeaderCSS.cart}/></Link>
 
                     <DropDown toggle={toggleDropDown}/>
                 </div>
