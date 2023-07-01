@@ -23,7 +23,9 @@ const Header = () => {
     return (
         <header className={HeaderCSS.header}>
             <div>
-                <NavLink to="/" style={{textDecoration: 'none', color: 'black'}}><h1 className={HeaderCSS.title}>NAME</h1></NavLink>
+                <NavLink to="/" style={{textDecoration: 'none', color: 'black'}}>
+                    <h1 className={HeaderCSS.title}>NAME</h1>
+                </NavLink>
                 <nav>
                     <NavLink to="/new" >NEW</NavLink>
                     <NavLink to="/men" >MEN</NavLink>

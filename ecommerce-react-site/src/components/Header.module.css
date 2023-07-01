@@ -34,10 +34,6 @@ nav > * {
     color: black;
 }
 
-/* .header a.active {
-    border-bottom: 1px solid;
-} */
-
 .icons {
     display: flex;
     gap: 10px;

@@ -5,6 +5,10 @@
     font-family: Poppins;
 }
 
+header .active {
+    border-bottom: 1px solid;
+}
+
 body {
     padding: 0;
     margin: 0 auto;
@@ -20,31 +24,4 @@ main {
     width: 95%;
     margin: 0 auto;
     max-width: 1360px;
-}
-
-.catalog {
-    display: grid;
-    gap: 20px;
-}
-
-@media only screen and (min-width: 600px) {
-    .catalog {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .catalog {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media only screen and (min-width: 992px) {
-    .catalog {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-
 }
