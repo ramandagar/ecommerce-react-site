@@ -23,14 +23,14 @@ const Header = () => {
     return (
         <header className={HeaderCSS.header}>
             <div>
-                <NavLink to="/" style={{textDecoration: 'none', color: 'black'}}>
-                    <h1 className={HeaderCSS.title}>NAME</h1>
-                </NavLink>
+                <Link to="/" style={{textDecoration: 'none', color: 'black'}}>
+                    <h1 className={HeaderCSS.title}>STUFF</h1>
+                </Link>
                 <nav>
                     <NavLink to="/new" >NEW</NavLink>
                     <NavLink to="/men" >MEN</NavLink>
                     <NavLink to="/women" >WOMEN</NavLink>
-                    <NavLink to="/kids" >KIDS</NavLink>
+                    <NavLink to="/other" >OTHER</NavLink>
                 </nav>
                 <div className={HeaderCSS.icons}>
                     <RxHamburgerMenu className={HeaderCSS.menu} onClick={() => setToggleDropDown(!toggleDropDown)}/>

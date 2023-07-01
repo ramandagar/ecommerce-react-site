@@ -1,14 +1,14 @@
 import Header from "../../components/Header";
 
-const Kids = () => {
+const Other = () => {
     return (
         <>
             <Header />
             <main>
-                <h1>Kids page</h1>
+                <h1>Other page</h1>
             </main>
         </>
     );
 }
 
-export default Kids;
+export default Other;

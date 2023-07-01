@@ -19,6 +19,10 @@
     padding: 0;
 }
 
+.card p:last-child {
+    color: #744FC6;
+}
+
 .card > div {
     display: flex;
     flex-direction: column;

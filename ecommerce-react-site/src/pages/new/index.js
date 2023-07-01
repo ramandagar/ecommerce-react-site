@@ -3,10 +3,12 @@ import Header from "../../components/Header";
 import ItemCard from '../../components/ItemCard';
 import ItemCardCSS from "../../components/ItemCard.module.css"
 import Loading from '../../components/Loading';
+import Details from '../../components/Details';
 
 const New = () => {
     let [products, setProducts] = useState([]);
     let [loading, setLoading] = useState(false);
+    let [details, setDetails] = useState(true);
 
     const fetchData = useCallback(() => {
         setLoading(true);
@@ -20,11 +22,17 @@ const New = () => {
             fetchData()
         }, [fetchData]);
     
-        if (loading) {
-            return (
-                <Loading />
-            );
-        }
+    if (loading) {
+        return (
+            <Loading />
+        );
+    }
+
+    if (details) {
+        return (
+            <Details />
+        );
+    }  
 
     return (
         <>

@@ -20,11 +20,11 @@ const Women = () => {
             fetchData()
         }, [fetchData]);
     
-        if (loading) {
-            return (
-                <Loading />
-            );
-        }
+    if (loading) {
+        return (
+            <Loading />
+        );
+    }
 
     return (
         <>

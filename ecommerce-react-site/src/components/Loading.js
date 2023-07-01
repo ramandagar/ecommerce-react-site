@@ -4,7 +4,7 @@ const Loading = () => {
     return (
         <>
             <Header />
-            <h1 style={{paddingTop: "200px", textAlign: 'center'}}>Loading...</h1>
+            <h1 style={{paddingTop: "25vh", textAlign: 'center'}}>Loading...</h1>
         </>
     );
 }
