@@ -4,10 +4,35 @@
     gap: 10px;
 }
 
-.nav button {
-    border: none;
-    background: none;
+.product {
+    display: grid;
+    gap: 20px;
+}
+
+.product img {
+    object-fit: contain;
+    max-width: 200px;
+    justify-self: center;
+    align-self: center;
+}
+
+.description > * {
+    margin: 0;
     padding: 0;
-    font-size: 1rem;
+}
+
+.description > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle {
     cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+    .product {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
