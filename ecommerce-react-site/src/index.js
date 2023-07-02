@@ -6,6 +6,7 @@ import Men from './pages/men'
 import Women from './pages/women';
 import Other from './pages/other';
 import Cart from './pages/cart';
+import Details from './pages/details/index.js';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +19,7 @@ root.render(
       <Route path='/women' element={<Women />} />
       <Route path='/other' element={<Other />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/details/:id' element={<Details />} />
     </Routes>
   </BrowserRouter>
 );

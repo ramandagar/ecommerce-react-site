@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HeaderCSS from './Header.module.css'
+import HeaderCSS from '../styles/Header.module.css';
 import { RxHamburgerMenu } from "react-icons/rx"
 import { NavLink, Link } from "react-router-dom"
 import { PiBagLight } from "react-icons/pi";

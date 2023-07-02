@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import Header from "../../components/Header";
 import ItemCard from "../../components/ItemCard";
-import ItemCardCSS from "../../components/ItemCard.module.css"
+import ItemCardCSS from "../../styles/ItemCard.module.css";
 import Loading from "../../components/Loading";
 
 const Women = () => {

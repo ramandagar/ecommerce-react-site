@@ -1,14 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
 import Header from "../../components/Header";
 import ItemCard from '../../components/ItemCard';
-import ItemCardCSS from "../../components/ItemCard.module.css"
+import ItemCardCSS from "../../styles/ItemCard.module.css";
 import Loading from '../../components/Loading';
-import Details from '../../components/Details';
 
 const New = () => {
     let [products, setProducts] = useState([]);
     let [loading, setLoading] = useState(false);
-    let [details, setDetails] = useState(true);
 
     const fetchData = useCallback(() => {
         setLoading(true);
@@ -27,12 +25,6 @@ const New = () => {
             <Loading />
         );
     }
-
-    if (details) {
-        return (
-            <Details />
-        );
-    }  
 
     return (
         <>
