@@ -16,6 +16,24 @@
     align-self: center;
 }
 
+.product > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product > div > h2 {
+    margin: 0;
+}
+
+.size button {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 20px;
+    background-color: white;
+    cursor: pointer;
+}
+
 .description > * {
     margin: 0;
     padding: 0;
@@ -28,6 +46,38 @@
 }
 
 .toggle {
+    cursor: pointer;
+}
+
+.size {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+
+.submit {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    gap: 10px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid black;
+}
+
+.submit > * {
+    padding: 8px 0;
+    text-align: center;
+}
+
+.submit input {
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.submit button {
+    background-color: black;
+    color: white;
+    border: none;
     cursor: pointer;
 }
 

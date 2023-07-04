@@ -4,6 +4,7 @@ import DetailsCSS from "../../styles/Details.module.css";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading"; 
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
+import Sizing from './Sizing';
 
 const Details = ({page}) => {
     let [products, setProducts] = useState([]);
@@ -48,12 +49,14 @@ const Details = ({page}) => {
                     <img src={products.image} alt=""/>
                     <div>
                         <h2>{products.title}</h2>
+                        <div className={DetailsCSS.size}>
                             <h3>${products.price}</h3>
-                            {/* <div>
-                                <p>stars</p>
-                                <p>{products.rating.rate}</p>
-                            </div> */}
-                        <hr/>
+                            <Sizing products={products}/>
+                        </div>
+                        <div className={DetailsCSS.submit}>
+                            <input type='number' min={1} max={5} defaultValue={1}></input>
+                            <button>ADD TO BAG</button>
+                        </div>
                         <div className={DetailsCSS.description}>
                             <div>
                                 <h3>Description</h3>
@@ -65,7 +68,6 @@ const Details = ({page}) => {
                              </div>
                             <p>{description && products.description}</p>
                         </div>
-                        
                     </div>
                 </div>
             </main>
