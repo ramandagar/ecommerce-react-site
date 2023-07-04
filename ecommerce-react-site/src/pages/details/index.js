@@ -1,17 +1,14 @@
 import { useState, useCallback, useEffect } from 'react';
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import DetailsCSS from "../../styles/Details.module.css";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading"; 
-import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
-import Sizing from './Sizing';
+import DetailsForm from './DetailsForm';
 
-const Details = ({page}) => {
+const Details = () => {
     let [products, setProducts] = useState([]);
     let [loading, setLoading] = useState(false);
-    let [description, setDescription] = useState(true);
     const params = useParams();
-    const navigate = useNavigate();
 
     const fetchData = useCallback(() => {
         setLoading(true);
@@ -37,38 +34,17 @@ const Details = ({page}) => {
             <main>
                 <div className={DetailsCSS.nav}>
                     <Link 
-                        to={products.category == "men's clothing" ? '/men' : (products.category == "women's clothing" ? "/women" : "/other")}
+                        to={products.category === "men's clothing" ? '/men' : (products.category === "women's clothing" ? "/women" : "/other")}
                         style={{color: 'black'}}
                     >
-                        {products.category == "men's clothing" ? 'Men' : (products.category == "women's clothing" ? "Women" : "Other")}
+                        {products.category === "men's clothing" ? 'Men' : (products.category === "women's clothing" ? "Women" : "Other")}
                     </Link>
                     <p>/</p>
                     <p>Details</p>
                 </div>
                 <div className={DetailsCSS.product}>
-                    <img src={products.image} alt=""/>
-                    <div>
-                        <h2>{products.title}</h2>
-                        <div className={DetailsCSS.size}>
-                            <h3>${products.price}</h3>
-                            <Sizing products={products}/>
-                        </div>
-                        <div className={DetailsCSS.submit}>
-                            <input type='number' min={1} max={5} defaultValue={1}></input>
-                            <button>ADD TO BAG</button>
-                        </div>
-                        <div className={DetailsCSS.description}>
-                            <div>
-                                <h3>Description</h3>
-                                {
-                                    description ? 
-                                        <VscChevronUp style={{width: '20px', height:'auto'}} onClick={() => setDescription(!description)} className={DetailsCSS.toggle}/> :
-                                        <VscChevronDown style={{width: '20px', height:'auto'}} onClick={() => setDescription(!description)} className={DetailsCSS.toggle}/>
-                                }
-                             </div>
-                            <p>{description && products.description}</p>
-                        </div>
-                    </div>
+                    <img src={products.image} alt={products.title}/>
+                    <DetailsForm products={products}/>
                 </div>
             </main>
         </>

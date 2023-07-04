@@ -2,7 +2,7 @@ import { useState } from "react";
 import HeaderCSS from '../styles/Header.module.css';
 import { RxHamburgerMenu } from "react-icons/rx"
 import { NavLink, Link } from "react-router-dom"
-import { PiBagLight } from "react-icons/pi";
+import { PiBag } from "react-icons/pi";
 
 const DropDown = ({toggle}) => {
     if (!toggle) {
@@ -34,7 +34,7 @@ const Header = () => {
                 </nav>
                 <div className={HeaderCSS.icons}>
                     <RxHamburgerMenu className={HeaderCSS.menu} onClick={() => setToggleDropDown(!toggleDropDown)}/>
-                    <Link to="/cart" style={{display: "flex"}}><PiBagLight className={HeaderCSS.cart}/></Link>
+                    <Link to="/cart" style={{display: "flex"}}><PiBag className={HeaderCSS.cart}/></Link>
 
                     <DropDown toggle={toggleDropDown}/>
                 </div>

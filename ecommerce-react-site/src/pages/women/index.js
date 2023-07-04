@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import ItemCard from "../../components/ItemCard";
 import ItemCardCSS from "../../styles/ItemCard.module.css";
 import Loading from "../../components/Loading";
+import Sort from "../../components/Sort";
 
 const Women = () => {
     let [products, setProducts] = useState([]);
@@ -30,6 +31,7 @@ const Women = () => {
         <>
             <Header />
             <main>
+                <Sort products={products} />
                 <div className={ItemCardCSS.catalog}>
                     {products.map((product) => (
                         <ItemCard 

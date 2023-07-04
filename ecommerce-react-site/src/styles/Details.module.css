@@ -16,17 +16,22 @@
     align-self: center;
 }
 
-.product > div {
+.product form {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.product > div > h2 {
+.product form > h2 {
     margin: 0;
 }
 
-.size button {
+.size div {
+    display: flex;
+    gap: 5px;
+}
+
+.size .button {
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px 20px;
@@ -69,12 +74,12 @@
     text-align: center;
 }
 
-.submit input {
+.submit input:first-child {
     border-radius: 5px;
     border: 1px solid black;
 }
 
-.submit button {
+.submit input:last-child {
     background-color: black;
     color: white;
     border: none;
