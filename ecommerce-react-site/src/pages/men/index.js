@@ -6,8 +6,8 @@ import Loading from "../../components/Loading";
 import Sort from "../../components/Sort";
 
 const Men = () => {
-    let [products, setProducts] = useState([]);
-    let [loading, setLoading] = useState(false)
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false)
 
     const fetchData = useCallback(() => {
         setLoading(true);

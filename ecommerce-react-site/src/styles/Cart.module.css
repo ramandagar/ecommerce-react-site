@@ -1,0 +1,30 @@
+.items {
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item {
+    display: flex;
+    border: 1px solid gray;
+    align-items: center;
+    padding: 10px;
+    /* max-width: fit-content; */
+}
+
+.item p {
+    margin: 0;
+}
+
+.items, .summary {
+    padding: 20px;
+}
+
+.summary {
+    border: 1px solid;
+}
+
+@media only screen and (min-width: 600px) {
+    
+}

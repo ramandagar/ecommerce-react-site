@@ -21,7 +21,8 @@ const Description = ({description, setDescription}) => {
 }
 
 const DetailsForm = ({products}) => {
-    let [description, setDescription] = useState(true);
+    const [description, setDescription] = useState(true);
+    
     return (
         <form>
             <h2>{products.title}</h2>
