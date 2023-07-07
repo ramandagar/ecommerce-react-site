@@ -16,7 +16,7 @@
     align-self: center;
 }
 
-.product form {
+.product .form {
     display: flex;
     flex-direction: column;
     gap: 5px;

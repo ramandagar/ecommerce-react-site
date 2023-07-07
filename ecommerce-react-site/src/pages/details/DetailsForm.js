@@ -1,6 +1,7 @@
 import DetailsCSS from '../../styles/Details.module.css';
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AppContext } from '../../context/AppContext';
 
 const Sizing = ({products}) => {
     const sizes = ['S','M','L'];
@@ -22,9 +23,10 @@ const Description = ({description, setDescription}) => {
 
 const DetailsForm = ({products}) => {
     const [description, setDescription] = useState(true);
-    
+    const {addToCart} = useContext(AppContext);
+
     return (
-        <form>
+        <div className={DetailsCSS.form}>
             <h2>{products.title}</h2>
             <div className={DetailsCSS.size}>
                 <h3>${products.price}</h3>
@@ -32,7 +34,7 @@ const DetailsForm = ({products}) => {
             </div>
             <div className={DetailsCSS.submit}>
                 <input type='number' min={1} max={5} defaultValue={1} />
-                <input type='submit' value='ADD TO BAG' onClick={event => event.preventDefault()}/>
+                <input type='submit' value='ADD TO BAG' onClick={() => addToCart(products.id)} />
             </div>
             <div className={DetailsCSS.description}>
                 <div>
@@ -44,7 +46,7 @@ const DetailsForm = ({products}) => {
                     </div>
                 <p>{description && products.description}</p>
             </div>
-        </form>
+        </div>
     );
 }
 

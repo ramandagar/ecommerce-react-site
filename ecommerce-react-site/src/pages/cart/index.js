@@ -1,24 +1,19 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Header from "../../components/Header";
 import CartCSS from "../../styles/Cart.module.css";
+import CartItem from "./CartItem";
 import { AppContext } from "../../context/AppContext";
-
-const CartItem = () => {
-    return (
-        <div className={CartCSS.item}>
-            <img src="" alt="image"/>
-            <div>
-                <p>Product</p>
-                <p>Price</p>
-                <p>Quantity</p>
-                <button>Remove</button>
-            </div>
-        </div>
-    );
-}
+import { loadProducts } from "../../services/api";
 
 const Cart = () => {
-    const {cartItems} = useContext(AppContext)
+    const {cartItems} = useContext(AppContext);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        loadProducts("")
+            .then(data => setProducts(data))
+    }, [loadProducts]);
+
     return (
         <>
             <Header />
@@ -27,9 +22,11 @@ const Cart = () => {
                 <div className={CartCSS.info}>
                     <div className={CartCSS.items}>
                         {
-                            cartItems.map( () => (
-                                <CartItem />
-                            ))
+                            products.map((product) => {
+                                if (cartItems[product.id] !== 0) {
+                                    return <CartItem product={product}/>
+                                }
+                            })
                         }
                     </div>
                     <div className={CartCSS.summary}>

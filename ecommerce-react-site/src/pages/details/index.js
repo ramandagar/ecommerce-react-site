@@ -4,23 +4,19 @@ import DetailsCSS from "../../styles/Details.module.css";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading"; 
 import DetailsForm from './DetailsForm';
+import { loadProducts } from '../../services/api';
 
 const Details = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const params = useParams();
 
-    const fetchData = useCallback(() => {
+    useEffect(() => {
         setLoading(true);
-        fetch(`https://fakestoreapi.com/products/${params.id}`)
-            .then(res => res.json())
+        loadProducts(params.id)
             .then(data => setProducts(data))
             .finally(() => setLoading(false))
-    }, []);
-
-    useEffect(() => {
-        fetchData()
-    }, [fetchData]);
+    }, [loadProducts]);
 
     if (loading) {
         return (
