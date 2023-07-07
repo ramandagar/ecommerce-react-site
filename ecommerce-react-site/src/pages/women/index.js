@@ -4,22 +4,18 @@ import ItemCard from "../../components/ItemCard";
 import ItemCardCSS from "../../styles/ItemCard.module.css";
 import Loading from "../../components/Loading";
 import Sort from "../../components/Sort";
+import { loadProducts } from "../../services/api";
 
 const Women = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const fetchData = useCallback(() => {
+    useEffect(() => {
         setLoading(true);
-        fetch("https://fakestoreapi.com/products/category/women's clothing")
-            .then(res => res.json())
+        loadProducts("category/women's clothing")
             .then(data => setProducts(data))
             .finally(() => setLoading(false))
-        }, []);
-    
-        useEffect(() => {
-            fetchData()
-        }, [fetchData]);
+    }, [loadProducts]);
     
     if (loading) {
         return (
