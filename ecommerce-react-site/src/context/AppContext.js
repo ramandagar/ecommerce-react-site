@@ -18,6 +18,7 @@ const getDefaultCart = async () => {
 
 const AppContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
+
     useEffect(() => {
         getDefaultCart()
             .then(data => setCartItems(data))

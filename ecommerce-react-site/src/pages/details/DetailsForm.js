@@ -2,16 +2,7 @@ import DetailsCSS from '../../styles/Details.module.css';
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 import { useContext, useState } from 'react';
 import { AppContext } from '../../context/AppContext';
-
-const Sizing = ({products}) => {
-    const sizes = ['S','M','L'];
-    return (
-        (products.category === "men's clothing" || products.category === "women's clothing") &&
-            <div>
-                {sizes.map(size => <input type='button' value={size} className={DetailsCSS.button}/>)}
-            </div>
-    );
-}
+import Sizing from './Sizing';
 
 const Description = ({description, setDescription}) => {
     return (
@@ -23,8 +14,8 @@ const Description = ({description, setDescription}) => {
 
 const DetailsForm = ({products}) => {
     const [description, setDescription] = useState(true);
-    const {updateCartAmount} = useContext(AppContext);
     const [itemAmount, setItemAmount] = useState();
+    const {updateCartAmount} = useContext(AppContext);
 
     return (
         <div className={DetailsCSS.form}>

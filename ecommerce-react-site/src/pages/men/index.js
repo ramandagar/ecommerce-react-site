@@ -8,7 +8,7 @@ import { loadProducts } from "../../services/api";
 
 const Men = () => {
     const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true);

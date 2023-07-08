@@ -1,8 +1,17 @@
+import ItemCardCSS from '../styles/ItemCard.module.css';
+
 const Sort = ({products}) => {
     return (
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-            <p style={{marginTop: '0'}}>{products.length} Items</p>
-            <p style={{marginTop: '0'}}>Sort By: <strong>Price High - Low</strong></p>
+        <div className={ItemCardCSS.sort}>
+            <p>{products.length} Items</p>
+            <div>
+                <label for="sort">Sort:</label>
+                <select name="sort">
+                    <option value="best">Best Selling</option>
+                    <option value="highest">Highest - Lowest</option>
+                    <option value="lowest">Lowest - Highest</option>
+                </select>
+            </div>
         </div>
     );
 }

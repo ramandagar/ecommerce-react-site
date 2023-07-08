@@ -28,25 +28,29 @@
     justify-self: center;
 }
 
-.item .text {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.item .text > div {
-    display: flex;
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 5px;
-    width: fit-content;
-}
-
 .item input, 
 .item button {
     text-align: center;
     border: none;
     background: white
+}
+
+.item button {
+    cursor: pointer;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.text > div {
+    display: flex;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 5px;
+    width: fit-content;
 }
 
 .item p,

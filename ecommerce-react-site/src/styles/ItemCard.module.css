@@ -41,6 +41,24 @@
     gap: 20px;
 }
 
+.sort {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sort p {
+    margin-top: 0;
+}
+
+.sort select {
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.sort label {
+    margin-right: 10px;
+}
+
 @media only screen and (min-width: 600px) {
     .catalog {
         grid-template-columns: repeat(2, 1fr);
