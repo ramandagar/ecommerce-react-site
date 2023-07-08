@@ -1,0 +1,46 @@
+.home {
+    position: relative;
+}
+
+.home img {
+    object-fit: contain;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.home h1 {
+    font-size: 2.625rem;
+}
+
+.home h2 {
+    font-size: 2rem;
+}
+
+.home div {
+    border: 1px solid;
+    padding: 30px;
+}
+
+.home button {
+    border: 1px solid;
+    background: black;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+.home button:active {
+    background: white;
+    color: black;
+}
+
+@media only screen and (min-width: 768px) {
+    .home div {
+        position: absolute;
+        top: 200px;
+        left: 340px;
+        background: white;
+        border-radius: 10px;
+    }
+}

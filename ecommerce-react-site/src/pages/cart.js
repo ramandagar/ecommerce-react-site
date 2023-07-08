@@ -44,36 +44,40 @@ const Cart = () => {
         <>
             <Header />
             <main>
-                <h2 style={{marginBottom: "10px"}}>{getTotalCartItems()} Items</h2>
+                <h2>{getTotalCartItems()} Items</h2>
                 <div className={CartCSS.info}>
                     <div className={CartCSS.items}>
                         {
-                            products.map((product) => {
-                                if (cartItems[product.id] !== 0) {
-                                    return <CartItem product={product}/>
-                                }
-                            })
+                            getTotalCartItems() === 0 ? 
+                                <p id={CartCSS.empty}>Your shopping bag is empty</p> :
+                                products.map((product) => {
+                                    if (cartItems[product.id] !== 0) {
+                                        return <CartItem product={product}/>
+                                    }
+                                })
                         }
                     </div>
                     <div className={CartCSS.summary}>
-                        <h3 style={{marginTop: "0"}}>Order Summary</h3>
                         <div>
-                            <p>Subtotal:</p>
-                            <p>${roundTwoDecimals(subtotal)}</p>
+                            <h3>Order Summary</h3>
+                            <div>
+                                <p>Subtotal:</p>
+                                <p>${roundTwoDecimals(subtotal)}</p>
+                            </div>
+                            <div>
+                                <p>Shipping:</p>
+                                <p>${shipping}</p>
+                            </div>
+                            <div>
+                                <p>Tax:</p>
+                                <p>${roundTwoDecimals(tax)}</p>
+                            </div>
+                            <div>
+                                <p>Total:</p>
+                                <p>${roundTwoDecimals(total)}</p>
+                            </div>
+                            <button>CHECKOUT</button>
                         </div>
-                        <div>
-                            <p>Shipping:</p>
-                            <p>${shipping}</p>
-                        </div>
-                        <div>
-                            <p>Tax:</p>
-                            <p>${roundTwoDecimals(tax)}</p>
-                        </div>
-                        <div>
-                            <p>Total:</p>
-                            <p>${roundTwoDecimals(total)}</p>
-                        </div>
-                        <button>Checkout</button>
                     </div>
                 </div>
             </main>
