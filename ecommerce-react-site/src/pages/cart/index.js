@@ -39,11 +39,22 @@ const Cart = () => {
                     </div>
                     <div className={CartCSS.summary}>
                         <h3 style={{marginTop: "0"}}>Order Summary</h3>
-                        <p>Subtotal: ${roundTwoDecimals(subtotal)}</p>
-                        <p>Shipping: ${shipping}</p>
-                        <p>Tax: ${roundTwoDecimals(tax)}</p>
-                        <hr/>
-                        <p>Total: ${roundTwoDecimals(total)}</p>
+                        <div>
+                            <p>Subtotal:</p>
+                            <p>${roundTwoDecimals(subtotal)}</p>
+                        </div>
+                        <div>
+                            <p>Shipping:</p>
+                            <p>${shipping}</p>
+                        </div>
+                        <div>
+                            <p>Tax:</p>
+                            <p>${roundTwoDecimals(tax)}</p>
+                        </div>
+                        <div>
+                            <p>Total:</p>
+                            <p>${roundTwoDecimals(total)}</p>
+                        </div>
                         <button>Checkout</button>
                     </div>
                 </div>

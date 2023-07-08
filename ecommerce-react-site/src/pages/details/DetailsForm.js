@@ -34,7 +34,7 @@ const DetailsForm = ({products}) => {
                 <Sizing products={products}/>
             </div>
             <div className={DetailsCSS.submit}>
-                <input type='number' min={0} max={5} defaultValue={0} onChange={(event) => setItemAmount(Number(event.target.value))}/>
+                <input type='number' defaultValue={0} onChange={(event) => setItemAmount(Number(event.target.value))}/>
                 <input type='submit' value='ADD TO BAG' onClick={() => itemAmount && updateCartAmount(products.id, itemAmount)} />
             </div>
             <div className={DetailsCSS.description}>

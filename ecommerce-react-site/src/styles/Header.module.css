@@ -40,8 +40,27 @@ nav > * {
     position: relative;
 }
 
-.menu,
-.cart {
+#count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -12px;
+    right: -5px;
+    background: white;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid;
+    font-size: 0.5rem;
+}
+
+#cart {
+    position: relative;
+}
+
+#menu,
+#cart {
     cursor: pointer;
     color: black;
     width: 20px;
@@ -73,7 +92,7 @@ nav > * {
         display: block;
     }
 
-    .menu,
+    #menu,
     .dropDown {
         display: none;
     }
