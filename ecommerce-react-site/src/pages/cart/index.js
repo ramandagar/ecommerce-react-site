@@ -26,7 +26,7 @@ const Cart = () => {
         <>
             <Header />
             <main>
-                <h2>{getTotalCartItems()} Items</h2>
+                <h2 style={{marginBottom: "10px"}}>{getTotalCartItems()} Items</h2>
                 <div className={CartCSS.info}>
                     <div className={CartCSS.items}>
                         {
@@ -38,12 +38,12 @@ const Cart = () => {
                         }
                     </div>
                     <div className={CartCSS.summary}>
-                        <h3>Order Summary</h3>
+                        <h3 style={{marginTop: "0"}}>Order Summary</h3>
                         <p>Subtotal: ${roundTwoDecimals(subtotal)}</p>
                         <p>Shipping: ${shipping}</p>
                         <p>Tax: ${roundTwoDecimals(tax)}</p>
                         <hr/>
-                        <p>Total: {roundTwoDecimals(total)}</p>
+                        <p>Total: ${roundTwoDecimals(total)}</p>
                         <button>Checkout</button>
                     </div>
                 </div>

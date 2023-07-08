@@ -7,14 +7,15 @@ const CartItem = ({product}) => {
 
     return (
         <div className={CartCSS.item}>
-            <img src="" alt={product.title}/>
-            <div>
+            <img src={product.image} alt={product.title}/>
+            <div className={CartCSS.text}>
                 <p>{product.title}</p>
-                <p>{product.price}</p>
-                <p>1</p>
-                <button onClick={() => removeFromCart(product.id)}>-</button>
-                <input value={cartItems[product.id]} onChange={(event) => updateCartAmount(product.id, event.target.value)}/>
-                <button onClick={() => addToCart(product.id)}>+</button>
+                <p>${product.price}</p>
+                <div>
+                    <button onClick={() => removeFromCart(product.id)}>-</button>
+                    <input value={cartItems[product.id]} onChange={(event) => updateCartAmount(product.id, event.target.value)}/>
+                    <button onClick={() => addToCart(product.id)}>+</button>
+                </div>
             </div>
         </div>
     );
