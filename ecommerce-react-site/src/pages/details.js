@@ -1,0 +1,100 @@
+import { useState, useContext, useEffect } from 'react';
+import { useParams, Link } from "react-router-dom";
+import DetailsCSS from "../styles/Details.module.css";
+import Header from "../components/Header";
+import Loading from "../components/Loading"; 
+import { loadProducts } from '../services/api';
+import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
+import { AppContext } from '../context/AppContext';
+
+const Sizing = ({products}) => {
+    const sizes = ['S','M','L'];
+
+    return (
+        (products.category === "men's clothing" || products.category === "women's clothing") &&
+            <div>
+                {sizes.map(size => <input type='button' value={size} id={DetailsCSS.button} />)}
+            </div>
+    );
+}
+
+const Description = ({description, setDescription}) => {
+    return (
+        description ? 
+            <VscChevronUp style={{width: '20px', height:'auto'}} onClick={() => setDescription(!description)} className={DetailsCSS.toggle}/> :
+            <VscChevronDown style={{width: '20px', height:'auto'}} onClick={() => setDescription(!description)} className={DetailsCSS.toggle}/>
+    );
+}
+
+const DetailsForm = ({products}) => {
+    const [description, setDescription] = useState(true);
+    const [itemAmount, setItemAmount] = useState();
+    const {updateCartAmount} = useContext(AppContext);
+
+    return (
+        <div className={DetailsCSS.form}>
+            <h2>{products.title}</h2>
+            <div className={DetailsCSS.size}>
+                <h3>${products.price}</h3>
+                <Sizing products={products}/>
+            </div>
+            <div className={DetailsCSS.submit}>
+                <input type='number' min={0} defaultValue={0} onChange={(event) => setItemAmount(Number(event.target.value))}/>
+                <input type='submit' value='ADD TO BAG' onClick={() => itemAmount && updateCartAmount(products.id, itemAmount)} />
+            </div>
+            <div className={DetailsCSS.description}>
+                <div>
+                    <h3>Description</h3>
+                    <Description 
+                        description={description} 
+                        setDescription={setDescription}
+                    />
+                    </div>
+                <p>{description && products.description}</p>
+            </div>
+        </div>
+    );
+}
+
+const Details = () => {
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const params = useParams();
+
+    useEffect(() => {
+        setLoading(true);
+        loadProducts(params.id)
+            .then(data => setProducts(data))
+            .finally(() => setLoading(false))
+    }, [loadProducts]);
+
+    if (loading) {
+        return (
+            <Loading />
+        );
+    }
+
+    return (
+        <>
+            <Header />
+            <main>
+                <div className={DetailsCSS.nav}>
+                    <Link 
+                        to={products.category === "men's clothing" ? '/men' : (products.category === "women's clothing" ? "/women" : "/other")}
+                        style={{color: 'black'}}
+                    >
+                        {products.category === "men's clothing" ? 'Men' : (products.category === "women's clothing" ? "Women" : "Other")}
+                    </Link>
+                    <p>/</p>
+                    <p>Details</p>
+                </div>
+                <div className={DetailsCSS.product}>
+                    <img src={products.image} alt={products.title}/>
+                    <DetailsForm products={products}/>
+                </div>
+            </main>
+        </>
+    );
+}
+
+export default Details;

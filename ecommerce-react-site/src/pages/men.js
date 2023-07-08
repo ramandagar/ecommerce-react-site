@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-import Header from "../../components/Header";
-import ItemCard from "../../components/ItemCard";
-import ItemCardCSS from "../../styles/ItemCard.module.css";
-import Loading from "../../components/Loading";
-import Sort from "../../components/Sort";
-import { loadProducts } from "../../services/api";
+import { useEffect, useState } from "react";
+import Header from "../components/Header";
+import ItemCard from "../components/ItemCard";
+import ItemCardCSS from "../styles/ItemCard.module.css";
+import Loading from "../components/Loading";
+import Sort from "../components/Sort";
+import { loadProducts } from "../services/api";
 
 const Men = () => {
     const [products, setProducts] = useState([]);

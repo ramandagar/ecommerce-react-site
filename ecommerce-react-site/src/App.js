@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Home from './pages/home';
+import Home from "./pages/home";
 import React from 'react';
 import New from './pages/new';
-import Men from './pages/men'
+import Men from './pages/men';
 import Women from './pages/women';
 import Other from './pages/other';
 import Cart from './pages/cart';
-import Details from './pages/details/index.js';
+import Details from './pages/details';
 import { AppContextProvider } from "./context/AppContext.js";
 
 function App() {

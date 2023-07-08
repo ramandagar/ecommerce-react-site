@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import Header from "../../components/Header";
-import ItemCard from "../../components/ItemCard";
-import Loading from "../../components/Loading";
-import Sort from "../../components/Sort";
-import { loadProducts } from "../../services/api";
-import ItemCardCSS from "../../styles/ItemCard.module.css";
+import Header from "../components/Header";
+import ItemCard from "../components/ItemCard";
+import Loading from "../components/Loading";
+import Sort from "../components/Sort";
+import { loadProducts } from "../services/api";
+import ItemCardCSS from "../styles/ItemCard.module.css";
 
 const Other = () => {
     const [jewelery, setJewelery] = useState([]);
