@@ -23,7 +23,8 @@ const Description = ({description, setDescription}) => {
 
 const DetailsForm = ({products}) => {
     const [description, setDescription] = useState(true);
-    const {addToCart} = useContext(AppContext);
+    const {updateCartAmount} = useContext(AppContext);
+    const [itemAmount, setItemAmount] = useState();
 
     return (
         <div className={DetailsCSS.form}>
@@ -33,8 +34,8 @@ const DetailsForm = ({products}) => {
                 <Sizing products={products}/>
             </div>
             <div className={DetailsCSS.submit}>
-                <input type='number' min={1} max={5} defaultValue={1} />
-                <input type='submit' value='ADD TO BAG' onClick={() => addToCart(products.id)} />
+                <input type='number' min={0} max={5} defaultValue={0} onChange={(event) => setItemAmount(Number(event.target.value))}/>
+                <input type='submit' value='ADD TO BAG' onClick={() => updateCartAmount(products.id, itemAmount)} />
             </div>
             <div className={DetailsCSS.description}>
                 <div>

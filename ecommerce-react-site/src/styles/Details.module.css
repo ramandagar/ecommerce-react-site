@@ -82,6 +82,12 @@
     cursor: pointer;
 }
 
+.submit input:last-child:active {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
 @media only screen and (min-width: 600px) {
     .product {
         grid-template-columns: repeat(2, 1fr);

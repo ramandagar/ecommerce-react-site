@@ -6,8 +6,16 @@ import { AppContext } from "../../context/AppContext";
 import { loadProducts } from "../../services/api";
 
 const Cart = () => {
-    const {cartItems} = useContext(AppContext);
+    const roundTwoDecimals = (num) => {
+        return Math.round(num * 100) / 100;
+    }
+
+    const {cartItems, getTotalCartAmount, getTotalCartItems} = useContext(AppContext);
     const [products, setProducts] = useState([]);
+    const subtotal = getTotalCartAmount();
+    const shipping = subtotal === 0 ? 0 : 5;
+    const tax = subtotal * 0.09;
+    const total = subtotal + shipping + tax;
 
     useEffect(() => {
         loadProducts("")
@@ -18,7 +26,7 @@ const Cart = () => {
         <>
             <Header />
             <main>
-                <h2>1 Items</h2>
+                <h2>{getTotalCartItems()} Items</h2>
                 <div className={CartCSS.info}>
                     <div className={CartCSS.items}>
                         {
@@ -31,9 +39,11 @@ const Cart = () => {
                     </div>
                     <div className={CartCSS.summary}>
                         <h3>Order Summary</h3>
-                        <p>Subtotal: $1</p>
-                        <p>Shipping: $1</p>
-                        <p>Tax: $1</p>
+                        <p>Subtotal: ${roundTwoDecimals(subtotal)}</p>
+                        <p>Shipping: ${shipping}</p>
+                        <p>Tax: ${roundTwoDecimals(tax)}</p>
+                        <hr/>
+                        <p>Total: {roundTwoDecimals(total)}</p>
                         <button>Checkout</button>
                     </div>
                 </div>
