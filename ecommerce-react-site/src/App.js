@@ -8,6 +8,7 @@ import Women from './pages/women';
 import Other from './pages/other';
 import Cart from './pages/cart';
 import Details from './pages/details';
+import Checkout from "./pages/checkout";
 import { AppContextProvider } from "./context/AppContext.js";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='/women' element={<Women />} />
           <Route path='/other' element={<Other />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout />} />
           <Route path='/details/:id' element={<Details />} />
         </Routes>
       </BrowserRouter>

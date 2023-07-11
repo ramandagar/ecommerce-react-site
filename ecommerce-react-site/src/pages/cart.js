@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import CartCSS from "../styles/Cart.module.css";
 import { AppContext } from "../context/AppContext";
 import { loadProducts } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const CartItem = ({product}) => {
     const {removeFromCart, addToCart, cartItems, updateCartAmount} = useContext(AppContext);
@@ -34,6 +35,7 @@ const Cart = () => {
     const shipping = subtotal === 0 ? 0 : 5;
     const tax = subtotal * 0.09;
     const total = subtotal + shipping + tax;
+    const navigate = useNavigate();
 
     useEffect(() => {
         loadProducts("")
@@ -76,7 +78,7 @@ const Cart = () => {
                                 <p>Total:</p>
                                 <p>${roundTwoDecimals(total)}</p>
                             </div>
-                            <button>CHECKOUT</button>
+                            <button onClick={() => navigate('/checkout')}>CHECKOUT</button>
                         </div>
                     </div>
                 </div>

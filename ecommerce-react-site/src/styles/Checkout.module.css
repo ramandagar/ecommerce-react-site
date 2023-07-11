@@ -1,0 +1,35 @@
+.form,
+.form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    gap: 20px;
+}
+
+.form h2 {
+    margin-bottom: 10px;
+}
+
+.form > div {
+    gap: 5px;
+}
+
+.form input,
+.form select {
+    padding: 10px;
+}
+
+.form select {
+    padding-left: 5px;
+}
+
+.form::placeholder, 
+.form select {
+    color: gray;
+}
+
+.form input[type=checkbox] {
+    margin-right: 10px;
+}
