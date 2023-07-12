@@ -26,16 +26,8 @@ const CartItem = ({product}) => {
 }
 
 const Cart = () => {
-    const roundTwoDecimals = (num) => {
-        return Math.round(num * 100) / 100;
-    }
-
-    const {cartItems, getTotalCartAmount, getTotalCartItems} = useContext(AppContext);
+    const {cartItems, getTotalCartItems} = useContext(AppContext);
     const [products, setProducts] = useState([]);
-    const subtotal = roundTwoDecimals(getTotalCartAmount());
-    const shipping = subtotal === 0 ? 0 : 5;
-    const tax = roundTwoDecimals(subtotal * 0.09);
-    const total = roundTwoDecimals(subtotal + shipping + tax);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -61,10 +53,6 @@ const Cart = () => {
                         }
                     </div>
                     <OrderSummary 
-                        subtotal={subtotal}
-                        shipping={shipping}
-                        tax={tax}
-                        total={total}
                         btn={
                             <button onClick={() => navigate('/checkout')}>CHECKOUT</button>
                         }

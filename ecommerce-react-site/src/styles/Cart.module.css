@@ -10,6 +10,7 @@
     flex-direction: column;
     gap: 20px;
     justify-content: center;
+    padding: 20px;
 }
 
 #empty {
@@ -60,10 +61,6 @@
 
 .item p {
     margin: 0;
-}
-
-.items {
-    padding: 20px;
 }
 
 @media only screen and (min-width: 768px) {

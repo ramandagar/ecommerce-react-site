@@ -4,8 +4,19 @@
     display: grid;
 }
 
+.form,
+.items,
+.item {
+    border: 1px solid;
+}
+
+.checkout {
+    gap: 20px;
+}
+
 .form {
     gap: 20px;
+    padding: 20px;
 }
 
 .form > div {
@@ -34,6 +45,32 @@
     margin-right: 10px;
 }
 
+.items {
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.items p {
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.item {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.item img {
+    object-fit: contain;
+    max-height: 50px;
+    justify-self: center;
+}
+
 @media only screen and (min-width: 600px) {
     .shippingInfo,
     .contact {
@@ -47,7 +84,9 @@
 }
 
 @media only screen and (min-width: 768px) {
-
+    .checkout {
+        grid-template-columns: 2fr 1fr;
+    }
 }
 
 @media only screen and (min-width: 992px) {
