@@ -1,19 +1,19 @@
+.checkout,
 .form,
 .form > div {
-    display: flex;
-    flex-direction: column;
+    display: grid;
 }
 
 .form {
     gap: 20px;
 }
 
-.form h2 {
-    margin-bottom: 10px;
-}
-
 .form > div {
     gap: 5px;
+}
+
+.form h2 {
+    margin-bottom: 10px;
 }
 
 .form input,
@@ -32,4 +32,28 @@
 
 .form input[type=checkbox] {
     margin-right: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+    .shippingInfo,
+    .contact {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .shippingInfo h2,
+    .contact h2 {
+        grid-column: span 2;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 992px) {
+
+}
+
+@media only screen and (min-width: 1200px) {
+
 }

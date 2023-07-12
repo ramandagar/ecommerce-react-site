@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import CartCSS from "../styles/Cart.module.css";
 import { AppContext } from "../context/AppContext";
 import { loadProducts } from "../services/api";
+import OrderSummary from "../components/OrderSummary";
 import { useNavigate } from "react-router-dom";
 
 const CartItem = ({product}) => {
@@ -31,10 +32,10 @@ const Cart = () => {
 
     const {cartItems, getTotalCartAmount, getTotalCartItems} = useContext(AppContext);
     const [products, setProducts] = useState([]);
-    const subtotal = getTotalCartAmount();
+    const subtotal = roundTwoDecimals(getTotalCartAmount());
     const shipping = subtotal === 0 ? 0 : 5;
-    const tax = subtotal * 0.09;
-    const total = subtotal + shipping + tax;
+    const tax = roundTwoDecimals(subtotal * 0.09);
+    const total = roundTwoDecimals(subtotal + shipping + tax);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -59,28 +60,15 @@ const Cart = () => {
                                 })
                         }
                     </div>
-                    <div className={CartCSS.summary}>
-                        <div>
-                            <h3>Order Summary</h3>
-                            <div>
-                                <p>Subtotal:</p>
-                                <p>${roundTwoDecimals(subtotal)}</p>
-                            </div>
-                            <div>
-                                <p>Shipping:</p>
-                                <p>${shipping}</p>
-                            </div>
-                            <div>
-                                <p>Tax:</p>
-                                <p>${roundTwoDecimals(tax)}</p>
-                            </div>
-                            <div>
-                                <p>Total:</p>
-                                <p>${roundTwoDecimals(total)}</p>
-                            </div>
+                    <OrderSummary 
+                        subtotal={subtotal}
+                        shipping={shipping}
+                        tax={tax}
+                        total={total}
+                        btn={
                             <button onClick={() => navigate('/checkout')}>CHECKOUT</button>
-                        </div>
-                    </div>
+                        }
+                    />
                 </div>
             </main>
         </>

@@ -1,11 +1,12 @@
 import Header from "../components/Header";
+import OrderSummary from "../components/OrderSummary";
 import CheckoutCSS from "../styles/Checkout.module.css";
 
 const Checkout = () => {
     return (
         <>
             <Header />
-            <main>
+            <main className={CheckoutCSS.checkout}>
                 <form className={CheckoutCSS.form}>
                     <div className={CheckoutCSS.shippingInfo}>
                         <h2>Shipping Info</h2>
@@ -16,7 +17,8 @@ const Checkout = () => {
                         <input type="text" placeholder="City*" required/>
                         <input type="number" placeholder="ZIP Code*" required/>
                         <select name="state" required>
-                            <option value="" disabled selected>State*</option>
+                            <option value="" disabled selected hidden>State*</option>
+                            <option value="" disabled>Select a State</option>
                             <option value="california">California</option>
                         </select>
                     </div>
@@ -71,6 +73,8 @@ const Checkout = () => {
                         </div>
                     </div>
                 </form>
+
+                <OrderSummary />
             </main>
         </>
     );

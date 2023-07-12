@@ -1,0 +1,36 @@
+.summary p,
+.summary h3 {
+    margin: 0;
+}
+
+.summary > div {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    gap: 10px;
+}
+
+.summary > div div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary > div div:last-of-type {
+    border-top: 1px solid;
+    padding-top: 10px;
+}
+
+.summary button {
+    width: 100%;
+    color: white;
+    background-color: black;
+    border: 1px solid;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.summary button:active {
+    color: black;
+    background-color: white;
+}
