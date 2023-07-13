@@ -15,8 +15,8 @@ const ShippingInfo = () => {
             <input type="text" placeholder="Apt/Suite"/>
             <input type="text" placeholder="City*" required/>
             <input type="number" placeholder="ZIP Code*" required/>
-            <select id="state" required>
-                <option value="" disabled selected hidden>State*</option>
+            <select id="state" required defaultValue="">
+                <option value="" disabled hidden>State*</option>
                 <option value="" disabled>Select a State</option>
                 <option value="california">California</option>
             </select>
@@ -34,22 +34,31 @@ const ContactInfo = () => {
     );
 }
 
-const ShippingMethod = () => {
+const ShippingMethod = ({setShippingCost}) => {
+    const shippingMethod = [
+        {id: 'standard', label: 'Standard - Free', value: 0},
+        {id: 'express', label: 'Express - $5', value: 5},
+        {id: 'overnight', label: 'Overnight - $10', value: 10}
+    ];
+    const [shippingOptions, setShippingOptions] = useState(0);
+
     return (
         <div>
             <h2>Shipping Method</h2>
-            <div>
-                <input id="standard" type="checkbox" checked/>
-                <label htmlFor="standard">Standard - Free</label>
-            </div>
-            <div>
-                <input id="express" type="checkbox"/>
-                <label htmlFor="express">Express - $5</label>
-            </div>
-            <div>
-                <input id="overnight" type="checkbox"/>
-                <label htmlFor="overnight">Overnight - $10</label>
-            </div>
+            {
+                shippingMethod.map((method) => (
+                    <div key={method.id}>
+                        <input 
+                            id={method.id} 
+                            type="checkbox" 
+                            value={method.value} 
+                            checked={shippingOptions == method.value ? true : false} 
+                            onChange={(event) => {setShippingCost(event.target.value); setShippingOptions(event.target.value)}}
+                        />
+                        <label htmlFor={method.id}>{method.label}</label>
+                    </div>
+                ))
+            }
         </div>
     );
 }
@@ -101,6 +110,7 @@ const Items = ({product, qty}) => {
 
 const Checkout = () => {
     const [products, setProducts] = useState([]);
+    const [shippingCost, setShippingCost] = useState(0);
     const {cartItems} = useContext(AppContext);
 
     useEffect (() => {
@@ -117,7 +127,9 @@ const Checkout = () => {
                     
                     <ContactInfo />
                     
-                    <ShippingMethod />
+                    <ShippingMethod 
+                        setShippingCost={setShippingCost}
+                    />
 
                     <PaymentMethod />
 
@@ -126,8 +138,8 @@ const Checkout = () => {
 
                 <div>
                     <OrderSummary
-                        shippingCost={0}
-                        btn={<button>SUBMIT PAYMENT</button>}
+                        shippingCost={shippingCost}
+                        btn={<button>SUBMIT ORDER</button>}
                     />
 
                     <div className={CheckoutCSS.items}>

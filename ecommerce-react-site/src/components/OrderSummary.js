@@ -9,8 +9,8 @@ const OrderSummary = ({shippingCost, btn}) => {
     
     const {getTotalCartAmount} = useContext(AppContext);
     const subtotal = roundTwoDecimals(getTotalCartAmount());
-    const shipping = shippingCost;
-    const tax = roundTwoDecimals(subtotal * 0.09);
+    const shipping = Number(shippingCost);
+    const tax = roundTwoDecimals((subtotal + shipping) * 0.09);
     const total = roundTwoDecimals(subtotal + shipping + tax);
 
     return (
