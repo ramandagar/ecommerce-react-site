@@ -2,14 +2,14 @@ import { useContext } from 'react';
 import OrderSummaryCSS from '../styles/OrderSummary.module.css'
 import { AppContext } from '../context/AppContext';
 
-const OrderSummary = ({btn}) => {
+const OrderSummary = ({shippingCost, btn}) => {
     const roundTwoDecimals = (num) => {
         return Math.round(num * 100) / 100;
     }
     
     const {getTotalCartAmount} = useContext(AppContext);
     const subtotal = roundTwoDecimals(getTotalCartAmount());
-    const shipping = subtotal === 0 ? 0 : 5;
+    const shipping = shippingCost;
     const tax = roundTwoDecimals(subtotal * 0.09);
     const total = roundTwoDecimals(subtotal + shipping + tax);
 

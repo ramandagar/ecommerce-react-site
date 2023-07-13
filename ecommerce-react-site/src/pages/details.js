@@ -13,7 +13,7 @@ const Sizing = ({products}) => {
     return (
         (products.category === "men's clothing" || products.category === "women's clothing") &&
             <div>
-                {sizes.map(size => <input type='button' value={size} id={DetailsCSS.button} />)}
+                {sizes.map(size => <input key={size} type='button' value={size} id={DetailsCSS.button} />)}
             </div>
     );
 }

@@ -5,8 +5,8 @@ const Sort = ({products}) => {
         <div className={ItemCardCSS.sort}>
             <p>{products.length} Items</p>
             <div>
-                <label for="sort">Sort:</label>
-                <select name="sort">
+                <label htmlFor="sort">Sort:</label>
+                <select id="sort">
                     <option value="best">Best Selling</option>
                     <option value="highest">Highest - Lowest</option>
                     <option value="lowest">Lowest - Highest</option>

@@ -15,7 +15,7 @@ const ShippingInfo = () => {
             <input type="text" placeholder="Apt/Suite"/>
             <input type="text" placeholder="City*" required/>
             <input type="number" placeholder="ZIP Code*" required/>
-            <select name="state" required>
+            <select id="state" required>
                 <option value="" disabled selected hidden>State*</option>
                 <option value="" disabled>Select a State</option>
                 <option value="california">California</option>
@@ -39,16 +39,16 @@ const ShippingMethod = () => {
         <div>
             <h2>Shipping Method</h2>
             <div>
-                <input name="standard" type="checkbox" checked/>
-                <label for="standard">Standard - Free</label>
+                <input id="standard" type="checkbox" checked/>
+                <label htmlFor="standard">Standard - Free</label>
             </div>
             <div>
-                <input name="express" type="checkbox"/>
-                <label for="express">Express - $5</label>
+                <input id="express" type="checkbox"/>
+                <label htmlFor="express">Express - $5</label>
             </div>
             <div>
-                <input name="overnight" type="checkbox"/>
-                <label for="overnight">Overnight - $10</label>
+                <input id="overnight" type="checkbox"/>
+                <label htmlFor="overnight">Overnight - $10</label>
             </div>
         </div>
     );
@@ -59,16 +59,12 @@ const PaymentMethod = () => {
         <div>
             <h2>Payment Method</h2>
             <div>
-                <input name="credit" type="checkbox" checked/>
-                <label for="credit">Credit Card</label>
+                <input id="credit" type="checkbox"/>
+                <label htmlFor="credit">Credit Card</label>
             </div>
             <div>
-                <input name="paypal" type="checkbox"/>
-                <label for="paypal">Paypal</label>
-            </div>
-            <div>
-                <input name="gift-card" type="checkbox"/>
-                <label for="gift-card">Gift Card</label>
+                <input id="gift-card" type="checkbox"/>
+                <label htmlFor="gift-card">Gift Card</label>
             </div>
         </div>
     );
@@ -79,25 +75,25 @@ const Billing = () => {
         <div>
             <h2>Billing</h2>
             <div>
-                <input name="same" type="checkbox"/>
-                <label for="same">Same as Shipping Address</label>
+                <input id="same" type="checkbox"/>
+                <label htmlFor="same">Same as Shipping Address</label>
             </div>
             <div>
-                <input name="new" type="checkbox"/>
-                <label for="new">Enter new Billing Address</label>
+                <input id="new" type="checkbox"/>
+                <label htmlFor="new">Enter new Billing Address</label>
             </div>
         </div>
     );
 }
 
-const Items = ({product}) => {
+const Items = ({product, qty}) => {
     return (
         <div className={CheckoutCSS.item}>
             <img src={product.image} alt="Product"/>
             <div>
                 <p>{product.title}</p>
                 <p>${product.price}</p>
-                <p>Qty: 1?</p>
+                <p>Qty: {qty}</p>
             </div>
         </div>
     );
@@ -130,6 +126,7 @@ const Checkout = () => {
 
                 <div>
                     <OrderSummary
+                        shippingCost={0}
                         btn={<button>SUBMIT PAYMENT</button>}
                     />
 
@@ -137,7 +134,11 @@ const Checkout = () => {
                         {
                             products.map((product) => {
                                 if (cartItems[product.id] !== 0) {
-                                    return <Items product={product}/>
+                                    return <Items 
+                                                key={product.id}
+                                                product={product} 
+                                                qty={cartItems[product.id]}
+                                            />
                                 }
                             })
                         }

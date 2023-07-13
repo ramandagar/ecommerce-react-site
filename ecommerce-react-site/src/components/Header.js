@@ -14,7 +14,7 @@ const DropDown = ({toggle}) => {
             <NavLink to="/new" >NEW</NavLink>
             <NavLink to="/men" >MEN</NavLink>
             <NavLink to="/women" >WOMEN</NavLink>
-            <NavLink to="/kids" >KIDS</NavLink>
+            <NavLink to="/other" >OTHER</NavLink>
         </div>
     );
 }

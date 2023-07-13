@@ -47,12 +47,16 @@ const Cart = () => {
                                 <p id={CartCSS.empty}>Your shopping bag is empty</p> :
                                 products.map((product) => {
                                     if (cartItems[product.id] !== 0) {
-                                        return <CartItem product={product}/>
+                                        return <CartItem 
+                                                    key={product.id}
+                                                    product={product}
+                                                />
                                     }
                                 })
                         }
                     </div>
                     <OrderSummary 
+                        shippingCost={0}
                         btn={
                             <button onClick={() => navigate('/checkout')}>CHECKOUT</button>
                         }

@@ -5,8 +5,7 @@
 }
 
 .form,
-.items,
-.item {
+.items {
     border: 1px solid;
 }
 
@@ -30,6 +29,10 @@
 .form input,
 .form select {
     padding: 10px;
+}
+
+.form input {
+    border: 1px solid gray;
 }
 
 .form select {
@@ -63,6 +66,13 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     align-items: center;
+    border: 1px solid gray;
+}
+
+.item > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .item img {
