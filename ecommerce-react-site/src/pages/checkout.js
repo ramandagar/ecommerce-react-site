@@ -11,7 +11,7 @@ const ShippingInfo = () => {
             <h2>Shipping Info</h2>
             <input type="text" placeholder="First Name*" required/>
             <input type="text" placeholder="Last Name*" required/>
-            <input type="" placeholder="Address*" required/>
+            <input type="text" placeholder="Address*" required/>
             <input type="text" placeholder="Apt/Suite"/>
             <input type="text" placeholder="City*" required/>
             <input type="number" placeholder="ZIP Code*" required/>
@@ -29,7 +29,7 @@ const ContactInfo = () => {
         <div className={CheckoutCSS.contact}>
             <h2>Contact Info</h2>
             <input type="email" placeholder="Email*" required/>
-            <input type="number" placeholder="Phone Number"/>
+            <input type="tel" placeholder="Phone Number"/>
         </div>
     );
 }
@@ -64,33 +64,44 @@ const ShippingMethod = ({setShippingCost}) => {
 }
 
 const PaymentMethod = () => {
+    const [paymentMethod, setPaymentMethod] = useState(true);
+
     return (
         <div>
             <h2>Payment Method</h2>
             <div>
-                <input id="credit" type="checkbox"/>
+                <input id="credit" type="checkbox" checked={paymentMethod && true} onChange={() => setPaymentMethod(true)}/>
                 <label htmlFor="credit">Credit Card</label>
             </div>
             <div>
-                <input id="gift-card" type="checkbox"/>
+                <input id="gift-card" type="checkbox" checked={!paymentMethod && true} onChange={() => setPaymentMethod(false)}/>
                 <label htmlFor="gift-card">Gift Card</label>
             </div>
-        </div>
-    );
-}
-
-const Billing = () => {
-    return (
-        <div>
-            <h2>Billing</h2>
-            <div>
-                <input id="same" type="checkbox"/>
-                <label htmlFor="same">Same as Shipping Address</label>
-            </div>
-            <div>
-                <input id="new" type="checkbox"/>
-                <label htmlFor="new">Enter new Billing Address</label>
-            </div>
+            {
+                paymentMethod ? 
+                    <div className={CheckoutCSS.credit}>
+                        <input type="text" placeholder="Number*" required/>
+                        <input type="text" placeholder="Cardholder Name*" required/>
+                        <div>
+                            <select id="exp-month" required defaultValue="">
+                                <option value="" disabled hidden>Exp. Month*</option>
+                                <option value="" disabled>Select a Month</option>
+                                <option value="01">01</option>
+                            </select>
+                            <select id="exp-year" required defaultValue="">
+                                <option value="" disabled hidden>Exp. Year*</option>
+                                <option value="" disabled>Select a Year</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </div>
+                        <input type="number" placeholder="CVV*" required/>
+                    </div> 
+                :
+                    <div className={CheckoutCSS.giftCard}>
+                        <input type="number" placeholder="Gift Card Number*" required/>
+                        <input type="number" placeholder="Pin*" required/>
+                    </div>
+            }
         </div>
     );
 }
@@ -132,8 +143,6 @@ const Checkout = () => {
                     />
 
                     <PaymentMethod />
-
-                    <Billing />
                 </form>
 
                 <div>

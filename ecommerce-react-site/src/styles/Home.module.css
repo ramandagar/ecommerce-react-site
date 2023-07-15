@@ -1,11 +1,15 @@
+.home,
+.features,
+.pages {
+    display: grid;
+}
+
 .home {
-    position: relative;
+    gap: 10px;
 }
 
 .home img {
-    object-fit: contain;
     width: 100%;
-    margin-bottom: 20px;
 }
 
 .home h1 {
@@ -14,11 +18,6 @@
 
 .home h2 {
     font-size: 2rem;
-}
-
-.home div {
-    border: 1px solid;
-    padding: 30px;
 }
 
 .home button {
@@ -36,12 +35,71 @@
     color: black;
 }
 
-@media only screen and (min-width: 768px) {
-    .home div {
+.hero {
+    position: relative;
+}
+
+.modal {
+    background: white;
+    padding: 30px;
+    border: 1px solid;
+}
+
+.features {
+    grid-template-columns: repeat(3, 1fr);
+    border: 0.5px solid;
+}
+
+.features > div {
+    text-align: center;
+    border: 0.5px solid;
+    padding: 10px;
+}
+
+.pages {
+    column-gap: 10px;
+    row-gap: 5px;
+}
+
+.container {
+    position: relative;
+    cursor: pointer;
+}
+
+.container img {
+    filter: brightness(80%);
+}
+
+.container h2 {
+    color: white;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 767px) {
+    .modal {
         position: absolute;
-        top: 200px;
-        left: 340px;
-        background: white;
+        border: 1px solid;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+}
+
+
+@media only screen and (min-width: 768px) {
+    .modal {
+        position: absolute;
+        top: 25%;
+        left: 25%;
         border-radius: 10px;
+    }
+
+    .pages {
+        grid-template-columns: 1fr 1fr;
     }
 }

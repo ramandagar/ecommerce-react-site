@@ -8,10 +8,11 @@ import { useNavigate } from "react-router-dom";
 
 const CartItem = ({product}) => {
     const {removeFromCart, addToCart, cartItems, updateCartAmount} = useContext(AppContext);
+    const navigate = useNavigate();
 
     return (
         <div className={CartCSS.item}>
-            <img src={product.image} alt={product.title}/>
+            <img src={product.image} alt={product.title} onClick={() => navigate(`/details/${product.id}`)}/>
             <div className={CartCSS.text}>
                 <p>{product.title}</p>
                 <p>${product.price}</p>
@@ -58,6 +59,7 @@ const Cart = () => {
                     <OrderSummary 
                         shippingCost={0}
                         btn={
+                            getTotalCartItems() !== 0 &&
                             <button onClick={() => navigate('/checkout')}>CHECKOUT</button>
                         }
                     />
