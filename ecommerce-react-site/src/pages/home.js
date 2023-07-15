@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import heroPhoto from "../assets/clothes.jpg";
+import heroPhoto from "../assets/clothes_2.jpeg";
 import mensClothing from "../assets/mens_clothing.png";
 import womensClothing from "../assets/womens_clothing.png";
 import electronics from "../assets/electronics.avif";
@@ -7,6 +7,8 @@ import allClothing from "../assets/all_clothing_2.webp";
 import HomeCSS from "../styles/Home.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { LiaShippingFastSolid, LiaMoneyBillAlt } from "react-icons/lia";
+import { BsBoxSeam } from "react-icons/bs"
 
 const Home = () => {
     const [pageLinks, setPageLinks] = useState([
@@ -41,19 +43,22 @@ const Home = () => {
                 </div>
                 <div className={HomeCSS.features}>
                     <div>
+                        <LiaShippingFastSolid />
                         <p>Free Shipping</p>
                     </div>
                     <div>
+                        <BsBoxSeam />
                         <p>30 Days Return</p>
                     </div>
                     <div>
+                        <LiaMoneyBillAlt />
                         <p>Full Refund</p>
                     </div>
                 </div>
                 <div className={HomeCSS.pages}>
                     {
                         pageLinks.map((page) => (
-                            <div 
+                            <button
                                 key={page.page} 
                                 className={HomeCSS.container} 
                                 onClick={() => navigate(page.page)} 
@@ -62,7 +67,7 @@ const Home = () => {
                             >
                                 <img src={page.image} alt={page.text} style={{filter: page.brightness}}/>
                                 <h2>{page.text}</h2>
-                            </div>
+                            </button>
                         ))
                     }
                 </div>
