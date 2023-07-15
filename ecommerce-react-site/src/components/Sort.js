@@ -1,15 +1,19 @@
+import { useContext } from 'react';
 import ItemCardCSS from '../styles/ItemCard.module.css';
+import { AppContext } from '../context/AppContext';
 
 const Sort = ({products}) => {
+    const { orderBy, setOrderBy } = useContext(AppContext);
+
     return (
         <div className={ItemCardCSS.sort}>
             <p>{products.length} Items</p>
             <div>
                 <label htmlFor="sort">Sort:</label>
-                <select id="sort">
-                    <option value="best">Best Selling</option>
-                    <option value="highest">Highest - Lowest</option>
-                    <option value="lowest">Lowest - Highest</option>
+                <select id="sort" value={orderBy} onChange={(event) => setOrderBy(event.target.value)}>
+                    <option value="Best Selling">Best Selling</option>
+                    <option value="Highest - Lowest">Highest - Lowest</option>
+                    <option value="Lowest - Highest">Lowest - Highest</option>
                 </select>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { loadProducts, PRODUCTS } from "../services/api";
+import { loadProducts } from "../services/api";
 
 const AppContext = createContext();
 
@@ -18,6 +18,7 @@ const getDefaultCart = async () => {
 
 const AppContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [orderBy, setOrderBy] = useState("Best Selling");
 
     useEffect(() => {
         getDefaultCart()
@@ -55,7 +56,7 @@ const AppContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: newAmount}))
     };
 
-    const contextValue = {cartItems, addToCart, removeFromCart, updateCartAmount, getTotalCartAmount, getTotalCartItems}
+    const contextValue = {cartItems, addToCart, removeFromCart, updateCartAmount, getTotalCartAmount, getTotalCartItems, orderBy, setOrderBy}
 
     console.log(cartItems);
     return <AppContext.Provider value={contextValue}>{props.children}</AppContext.Provider>

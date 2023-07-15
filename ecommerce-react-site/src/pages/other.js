@@ -1,16 +1,18 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Header from "../components/Header";
 import ItemCard from "../components/ItemCard";
 import Loading from "../components/Loading";
 import Sort from "../components/Sort";
 import { loadProducts } from "../services/api";
 import ItemCardCSS from "../styles/ItemCard.module.css";
+import { AppContext } from '../context/AppContext';
 
 const Other = () => {
     const [jewelery, setJewelery] = useState([]);
     const [electronics, setElectronics] = useState([]);
     const [loading, setLoading] = useState(false);
     const products = [...jewelery, ...electronics];
+    const { orderBy } = useContext(AppContext);
 
     useEffect(() => {
         setLoading(true);
@@ -28,6 +30,12 @@ const Other = () => {
             <Loading />
         );
     }
+
+    products.sort((a,b) => (
+        orderBy === "Lowest - Highest" ? 
+            a.price - b.price : 
+            (orderBy === "Highest - Lowest" ? b.price - a.price : a.id - b.id)
+    ));
 
     return (
         <>
