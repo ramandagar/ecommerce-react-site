@@ -37,6 +37,12 @@
 
 .hero {
     position: relative;
+    margin-bottom: 10px;
+}
+
+.hero img {
+    aspect-ratio: 1/0.45;
+    object-fit: cover;
 }
 
 .modal {
@@ -67,7 +73,9 @@
 }
 
 .container img {
-    filter: brightness(80%);
+    /* filter: brightness(80%); */
+    object-fit: cover;
+    aspect-ratio: 16/9;
 }
 
 .container h2 {
@@ -77,6 +85,20 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 450px) {
+    .features p {
+        font-size: 0.75rem;
+    }
+
+    .modal h1 {
+        font-size: 1.5rem;
+    }
+
+    .modal h2 {
+        font-size: 1.375rem;
+    }
 }
 
 @media only screen and (max-width: 767px) {
