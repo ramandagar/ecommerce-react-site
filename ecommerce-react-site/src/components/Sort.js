@@ -1,10 +1,6 @@
-import { useContext } from 'react';
 import ItemCardCSS from '../styles/ItemCard.module.css';
-import { AppContext } from '../context/AppContext';
 
-const Sort = ({products}) => {
-    const { orderBy, setOrderBy } = useContext(AppContext);
-
+const Sort = ({products, orderBy, setOrderBy}) => {
     return (
         <div className={ItemCardCSS.sort}>
             <p>{products.length} Items</p>

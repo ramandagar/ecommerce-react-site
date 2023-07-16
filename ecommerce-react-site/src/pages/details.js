@@ -7,13 +7,25 @@ import { loadProducts } from '../services/api';
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 import { AppContext } from '../context/AppContext';
 
-const Sizing = ({products}) => {
+const Sizing = ({products, selectedSize, setSelectedSize}) => {
     const sizes = ['S','M','L'];
 
     return (
         (products.category === "men's clothing" || products.category === "women's clothing") &&
             <div>
-                {sizes.map(size => <input key={size} type='button' value={size} id={DetailsCSS.button} />)}
+                {sizes.map((size) => 
+                    <input 
+                        key={size} 
+                        style={{
+                            backgroundColor: selectedSize === size && 'black', 
+                            color: selectedSize === size && 'white'
+                        }} 
+                        type='button' 
+                        value={size} 
+                        id={DetailsCSS.button} 
+                        onClick={(event) => setSelectedSize(event.target.value)}
+                    />
+                )}
             </div>
     );
 }
@@ -28,7 +40,8 @@ const Description = ({description, setDescription}) => {
 
 const DetailsForm = ({products}) => {
     const [description, setDescription] = useState(true);
-    const [itemAmount, setItemAmount] = useState();
+    const [itemAmount, setItemAmount] = useState(1);
+    const [selectedSize, setSelectedSize] = useState('');
     const {updateCartAmount} = useContext(AppContext);
 
     return (
@@ -36,10 +49,14 @@ const DetailsForm = ({products}) => {
             <h2>{products.title}</h2>
             <div className={DetailsCSS.size}>
                 <h3>${products.price}</h3>
-                <Sizing products={products}/>
+                <Sizing 
+                    products={products}
+                    selectedSize = {selectedSize}
+                    setSelectedSize = {setSelectedSize}
+                />
             </div>
             <div className={DetailsCSS.submit}>
-                <input type='number' min={0} defaultValue={0} onChange={(event) => setItemAmount(Number(event.target.value))}/>
+                <input type='number' min={1} defaultValue={1} onChange={(event) => setItemAmount(Number(event.target.value))}/>
                 <input type='submit' value='ADD TO BAG' onClick={() => itemAmount && updateCartAmount(products.id, itemAmount)} />
             </div>
             <div className={DetailsCSS.description}>

@@ -1,6 +1,27 @@
 import { useState, createContext, useEffect } from "react";
 import { loadProducts } from "../services/api";
 
+// {
+//     1: {
+//         S: 0,
+//         M: 0,
+//         L: 0,
+//         notSize: 0
+//     },
+//     2: {
+//         S: 0,
+//         M: 0,
+//         L: 0,
+//         notSize: 0
+//     }
+// }
+
+
+// {
+//     1: [0, ""],
+//     2: [0, ""]
+// }
+
 const AppContext = createContext();
 
 const response = loadProducts("").then(data => {
@@ -18,7 +39,6 @@ const getDefaultCart = async () => {
 
 const AppContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
-    const [orderBy, setOrderBy] = useState("Best Selling");
 
     useEffect(() => {
         getDefaultCart()
@@ -56,7 +76,7 @@ const AppContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: newAmount}))
     };
 
-    const contextValue = {cartItems, addToCart, removeFromCart, updateCartAmount, getTotalCartAmount, getTotalCartItems, orderBy, setOrderBy}
+    const contextValue = {cartItems, addToCart, removeFromCart, updateCartAmount, getTotalCartAmount, getTotalCartItems}
 
     console.log(cartItems);
     return <AppContext.Provider value={contextValue}>{props.children}</AppContext.Provider>

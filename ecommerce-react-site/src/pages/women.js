@@ -1,16 +1,15 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import ItemCard from "../components/ItemCard";
 import ItemCardCSS from "../styles/ItemCard.module.css";
 import Loading from "../components/Loading";
 import Sort from "../components/Sort";
 import { loadProducts } from "../services/api";
-import { AppContext } from '../context/AppContext';
 
 const Women = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const { orderBy } = useContext(AppContext);
+    const [orderBy, setOrderBy] = useState("Best Selling");
 
     useEffect(() => {
         setLoading(true);
@@ -35,7 +34,11 @@ const Women = () => {
         <>
             <Header />
             <main>
-                <Sort products={products} />
+                <Sort 
+                    products={products} 
+                    orderBy={orderBy}
+                    setOrderBy={setOrderBy}
+                />
                 <div className={ItemCardCSS.catalog}>
                     {products.map((product) => (
                         <ItemCard 
