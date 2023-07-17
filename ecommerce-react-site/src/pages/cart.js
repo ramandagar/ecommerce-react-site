@@ -16,9 +16,13 @@ const CartItem = ({product}) => {
             <div className={CartCSS.text}>
                 <p>{product.title}</p>
                 <p>${product.price}</p>
+                {
+                    cartItems[product.id][1] !== "" && 
+                    <p>Size: {cartItems[product.id][1]}</p>
+                }
                 <div>
                     <button onClick={() => removeFromCart(product.id)}>-</button>
-                    <input value={cartItems[product.id]} onChange={(event) => updateCartAmount(product.id, event.target.value)}/>
+                    <input value={cartItems[product.id][0]} onChange={(event) => updateCartAmount(product.id, event.target.value)}/>
                     <button onClick={() => addToCart(product.id)}>+</button>
                 </div>
             </div>
@@ -47,7 +51,7 @@ const Cart = () => {
                             getTotalCartItems() === 0 ? 
                                 <p id={CartCSS.empty}>Your shopping bag is empty</p> :
                                 products.map((product) => {
-                                    if (cartItems[product.id] !== 0) {
+                                    if (cartItems[product.id][0] !== 0) {
                                         return <CartItem 
                                                     key={product.id}
                                                     product={product}

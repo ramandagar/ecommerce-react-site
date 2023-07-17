@@ -43,6 +43,7 @@
 .form select,
 .item {
     border: 1px solid gray;
+    border-radius: 3px;
 }
 
 .form select {
@@ -90,6 +91,11 @@
     max-height: 50px;
     max-width: 100%;
     justify-self: center;
+}
+
+.item > div > div {
+    display: flex;
+    gap: 10px
 }
 
 .credit,

@@ -106,14 +106,20 @@ const PaymentMethod = () => {
     );
 }
 
-const Items = ({product, qty}) => {
+const Items = ({product, qty, size}) => {
     return (
         <div className={CheckoutCSS.item}>
             <img src={product.image} alt="Product"/>
             <div>
                 <p>{product.title}</p>
                 <p>${product.price}</p>
-                <p>Qty: {qty}</p>
+                <div>
+                    {
+                        size &&
+                        <p>Size: {size}</p>
+                    }
+                    <p>Qty: {qty}</p>
+                </div>
             </div>
         </div>
     );
@@ -154,11 +160,12 @@ const Checkout = () => {
                     <div className={CheckoutCSS.items}>
                         {
                             products.map((product) => {
-                                if (cartItems[product.id] !== 0) {
+                                if (cartItems[product.id][0] !== 0) {
                                     return <Items 
                                                 key={product.id}
                                                 product={product} 
-                                                qty={cartItems[product.id]}
+                                                qty={cartItems[product.id][0]}
+                                                size={cartItems[product.id][1]}
                                             />
                                 }
                             })

@@ -2,22 +2,6 @@ import { useState, createContext, useEffect } from "react";
 import { loadProducts } from "../services/api";
 
 // {
-//     1: {
-//         S: 0,
-//         M: 0,
-//         L: 0,
-//         notSize: 0
-//     },
-//     2: {
-//         S: 0,
-//         M: 0,
-//         L: 0,
-//         notSize: 0
-//     }
-// }
-
-
-// {
 //     1: [0, ""],
 //     2: [0, ""]
 // }
@@ -32,7 +16,7 @@ const products = await response;
 const getDefaultCart = async () => {
     let cart = {};
     for (let i = 1; i < products.length + 1; i++ ) {
-        cart[i] = 0; 
+        cart[i] = [0, ""]; 
     }
     return cart;
 };
@@ -48,9 +32,9 @@ const AppContextProvider = (props) => {
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
-            if (cartItems[item] > 0) {
+            if (cartItems[item][0] > 0) {
                 let itemInfo = products.find((product) => product.id == Number(item));
-                totalAmount += cartItems[item] * itemInfo.price;
+                totalAmount += cartItems[item][0] * itemInfo.price;
             }
         }
         return totalAmount;
@@ -59,21 +43,21 @@ const AppContextProvider = (props) => {
     const getTotalCartItems = () => {
         let totalItems = 0;
         for (const item in cartItems) {
-            totalItems += cartItems[item];
+            totalItems += cartItems[item][0];
         }
         return totalItems;
     };
 
     const addToCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1 }))
+        setCartItems((prev) => ({...prev, [itemId]: [prev[itemId][0] + 1, prev[itemId[1]]] }))
     };
 
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1 }))
+        setCartItems((prev) => ({...prev, [itemId]: [prev[itemId][0] - 1, prev[itemId[1]]] }))
     };
 
-    const updateCartAmount = (itemId, newAmount) => {
-        setCartItems((prev) => ({...prev, [itemId]: newAmount}))
+    const updateCartAmount = (itemId, newAmount, newSize) => {
+        setCartItems((prev) => ({...prev, [itemId]: [newAmount, newSize]}))
     };
 
     const contextValue = {cartItems, addToCart, removeFromCart, updateCartAmount, getTotalCartAmount, getTotalCartItems}
