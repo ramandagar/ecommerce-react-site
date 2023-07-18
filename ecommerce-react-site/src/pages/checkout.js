@@ -65,6 +65,16 @@ const ShippingMethod = ({setShippingCost}) => {
 
 const PaymentMethod = () => {
     const [paymentMethod, setPaymentMethod] = useState(true);
+    const months = [];
+    const years = [];
+
+    for (let i = 1; i <= 12; i++) {
+        months.push(i);
+    }
+
+    for (let i = 2023; i <= 2032; i++) {
+        years.push(i);
+    }
 
     return (
         <div>
@@ -80,18 +90,23 @@ const PaymentMethod = () => {
             {
                 paymentMethod ? 
                     <div className={CheckoutCSS.credit}>
-                        <input type="text" placeholder="Number*" required/>
+                        <input type="number" placeholder="Number*" required/>
                         <input type="text" placeholder="Cardholder Name*" required/>
                         <div>
                             <select id="exp-month" required defaultValue="">
                                 <option value="" disabled hidden>Exp. Month*</option>
                                 <option value="" disabled>Select a Month</option>
-                                <option value="01">01</option>
+                                {
+                                    months.map((month) => <option value={month}>{month}</option>)
+                                }
                             </select>
                             <select id="exp-year" required defaultValue="">
                                 <option value="" disabled hidden>Exp. Year*</option>
                                 <option value="" disabled>Select a Year</option>
-                                <option value="2023">2023</option>
+                                {
+                                    years.map((year) => <option value={year}>{year}</option>)
+                                }
+                                
                             </select>
                         </div>
                         <input type="number" placeholder="CVV*" required/>
@@ -139,7 +154,7 @@ const Checkout = () => {
         <>
             <Header />
             <main className={CheckoutCSS.checkout}>
-                <form className={CheckoutCSS.form}>
+                <form id="checkout-form" className={CheckoutCSS.form}>
                     <ShippingInfo />
                     
                     <ContactInfo />
@@ -154,7 +169,7 @@ const Checkout = () => {
                 <div>
                     <OrderSummary
                         shippingCost={shippingCost}
-                        btn={<button>SUBMIT ORDER</button>}
+                        btn={<button form="checkout-form" type="submit">SUBMIT ORDER</button>}
                     />
 
                     <div className={CheckoutCSS.items}>

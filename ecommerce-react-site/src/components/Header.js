@@ -3,6 +3,7 @@ import HeaderCSS from '../styles/Header.module.css';
 import { RxHamburgerMenu } from "react-icons/rx"
 import { NavLink, Link, useNavigate } from "react-router-dom"
 import { PiBag } from "react-icons/pi";
+import { BsReceipt } from "react-icons/bs"
 import { AppContext } from "../context/AppContext";
 
 const DropDown = ({toggle}) => {
@@ -38,6 +39,7 @@ const Header = () => {
                 </nav>
                 <div className={HeaderCSS.icons}>
                     <RxHamburgerMenu id={HeaderCSS.menu} onClick={() => setToggleDropDown(!toggleDropDown)}/>
+                    <BsReceipt id={HeaderCSS.order}/>
                     <div onClick={() => navigate('/cart')}>
                         <PiBag style={{display: "flex"}} id={HeaderCSS.cart}/>
                         {

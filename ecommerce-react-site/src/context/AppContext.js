@@ -49,11 +49,11 @@ const AppContextProvider = (props) => {
     };
 
     const addToCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: [prev[itemId][0] + 1, prev[itemId[1]]] }))
+        setCartItems((prev) => ({...prev, [itemId]: [ prev[itemId][0] + 1, prev[itemId][1] ]}))
     };
 
     const removeFromCart = (itemId) => {
-        setCartItems((prev) => ({...prev, [itemId]: [prev[itemId][0] - 1, prev[itemId[1]]] }))
+        setCartItems((prev) => ({...prev, [itemId]: [ prev[itemId][0] - 1, prev[itemId][1] ]}))
     };
 
     const updateCartAmount = (itemId, newAmount, newSize) => {
@@ -62,7 +62,7 @@ const AppContextProvider = (props) => {
 
     const contextValue = {cartItems, addToCart, removeFromCart, updateCartAmount, getTotalCartAmount, getTotalCartItems}
 
-    console.log(cartItems);
+    // console.log(cartItems);
     return <AppContext.Provider value={contextValue}>{props.children}</AppContext.Provider>
 };
 
