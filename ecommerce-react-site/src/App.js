@@ -9,6 +9,7 @@ import Other from './pages/other';
 import Cart from './pages/cart';
 import Details from './pages/details';
 import Checkout from "./pages/checkout";
+import Confirmation from "./pages/confirmation";
 import { AppContextProvider } from "./context/AppContext.js";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/details/:id' element={<Details />} />
+          <Route path='/confirmation' element={<Confirmation />} />
         </Routes>
       </BrowserRouter>
     </AppContextProvider>

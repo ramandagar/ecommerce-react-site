@@ -39,7 +39,7 @@ const Header = () => {
                 </nav>
                 <div className={HeaderCSS.icons}>
                     <RxHamburgerMenu id={HeaderCSS.menu} onClick={() => setToggleDropDown(!toggleDropDown)}/>
-                    <BsReceipt id={HeaderCSS.order}/>
+                    {/* <BsReceipt id={HeaderCSS.order}/> */}
                     <div onClick={() => navigate('/cart')}>
                         <PiBag style={{display: "flex"}} id={HeaderCSS.cart}/>
                         {

@@ -23,10 +23,14 @@ const getDefaultCart = async () => {
 
 const AppContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
+    const [finalOrder, setFinalOrder] = useState(getDefaultCart());
 
     useEffect(() => {
         getDefaultCart()
             .then(data => setCartItems(data))
+
+        getDefaultCart()
+            .then(data => setFinalOrder(data))
     }, [])
 
     const getTotalCartAmount = () => {
@@ -60,7 +64,11 @@ const AppContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: [newAmount, newSize]}))
     };
 
-    const contextValue = {cartItems, addToCart, removeFromCart, updateCartAmount, getTotalCartAmount, getTotalCartItems}
+    const clearCart = async () => {
+        setCartItems( await getDefaultCart());
+    }
+
+    const contextValue = {cartItems, addToCart, removeFromCart, updateCartAmount, getTotalCartAmount, getTotalCartItems, clearCart, finalOrder, setFinalOrder}
 
     // console.log(cartItems);
     return <AppContext.Provider value={contextValue}>{props.children}</AppContext.Provider>

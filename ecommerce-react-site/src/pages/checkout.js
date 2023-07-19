@@ -4,6 +4,7 @@ import OrderSummary from "../components/OrderSummary";
 import CheckoutCSS from "../styles/Checkout.module.css";
 import { AppContext } from "../context/AppContext";
 import { loadProducts } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 const ShippingInfo = () => {
     return (
@@ -97,14 +98,14 @@ const PaymentMethod = () => {
                                 <option value="" disabled hidden>Exp. Month*</option>
                                 <option value="" disabled>Select a Month</option>
                                 {
-                                    months.map((month) => <option value={month}>{month}</option>)
+                                    months.map((month, index) => <option key={index} value={month}>{month}</option>)
                                 }
                             </select>
                             <select id="exp-year" required defaultValue="">
                                 <option value="" disabled hidden>Exp. Year*</option>
                                 <option value="" disabled>Select a Year</option>
                                 {
-                                    years.map((year) => <option value={year}>{year}</option>)
+                                    years.map((year, index) => <option key={index} value={year}>{year}</option>)
                                 }
                                 
                             </select>
@@ -143,7 +144,8 @@ const Items = ({product, qty, size}) => {
 const Checkout = () => {
     const [products, setProducts] = useState([]);
     const [shippingCost, setShippingCost] = useState(0);
-    const {cartItems} = useContext(AppContext);
+    const {cartItems, setFinalOrder} = useContext(AppContext);
+    const navigate = useNavigate();
 
     useEffect (() => {
         loadProducts("")
@@ -169,7 +171,7 @@ const Checkout = () => {
                 <div>
                     <OrderSummary
                         shippingCost={shippingCost}
-                        btn={<button form="checkout-form" type="submit">SUBMIT ORDER</button>}
+                        btn={<button form="checkout-form" type="submit" onSubmit={() => {navigate('/confirmation'); setFinalOrder(cartItems);}}>SUBMIT ORDER</button>}
                     />
 
                     <div className={CheckoutCSS.items}>
