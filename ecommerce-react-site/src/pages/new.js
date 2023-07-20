@@ -5,6 +5,7 @@ import ItemCardCSS from "../styles/ItemCard.module.css";
 import Loading from '../components/Loading';
 import Sort from '../components/Sort';
 import { loadProducts  } from '../services/api';
+import Footer from '../components/Footer';
 
 const New = () => {
     const [products, setProducts] = useState([]);
@@ -60,6 +61,7 @@ const New = () => {
                     ))}
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

@@ -5,6 +5,7 @@ import Loading from "../components/Loading";
 import Sort from "../components/Sort";
 import { loadProducts } from "../services/api";
 import ItemCardCSS from "../styles/ItemCard.module.css";
+import Footer from "../components/Footer";
 
 const Other = () => {
     const [jewelery, setJewelery] = useState([]);
@@ -54,6 +55,7 @@ const Other = () => {
                     ))}
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

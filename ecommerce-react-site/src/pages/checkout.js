@@ -5,6 +5,7 @@ import CheckoutCSS from "../styles/Checkout.module.css";
 import { AppContext } from "../context/AppContext";
 import { loadProducts } from "../services/api";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const ShippingInfo = () => {
     return (
@@ -190,6 +191,7 @@ const Checkout = () => {
                     </div>
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

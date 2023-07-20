@@ -5,6 +5,7 @@ import { AppContext } from "../context/AppContext";
 import { loadProducts } from "../services/api";
 import OrderSummary from "../components/OrderSummary";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const CartItem = ({product}) => {
     const {removeFromCart, addToCart, cartItems, updateCartAmount} = useContext(AppContext);
@@ -69,6 +70,7 @@ const Cart = () => {
                     />
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

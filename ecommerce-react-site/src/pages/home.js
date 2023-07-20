@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { LiaShippingFastSolid, LiaMoneyBillAlt } from "react-icons/lia";
 import { BsBoxSeam } from "react-icons/bs"
+import Footer from "../components/Footer";
 
 const Home = () => {
     const [pageLinks, setPageLinks] = useState([
@@ -72,6 +73,7 @@ const Home = () => {
                     }
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

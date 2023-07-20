@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import { loadProducts } from '../services/api';
 import { VscChevronDown, VscChevronUp } from 'react-icons/vsc';
 import { AppContext } from '../context/AppContext';
+import Footer from '../components/Footer';
 
 const Sizing = ({products, selectedSize, setSelectedSize}) => {
     const sizes = ['S','M','L'];
@@ -116,6 +117,7 @@ const Details = () => {
                     <DetailsForm products={products}/>
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

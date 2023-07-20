@@ -4,6 +4,7 @@ import { loadProducts } from "../services/api";
 import { AppContext } from "../context/AppContext";
 import ConfirmationCSS from "../styles/Confirmation.module.css"
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Confirmation = () => {
     const [products, setProducts] = useState([]);
@@ -48,6 +49,7 @@ const Confirmation = () => {
                     <button onClick={() => navigate('/')}>CONTINUE SHOPPING</button>
                 </div>
             </main>
+            <Footer />
         </>
     );
 }
