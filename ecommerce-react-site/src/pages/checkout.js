@@ -6,8 +6,12 @@ import { AppContext } from "../context/AppContext";
 import { loadProducts } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import { Country, State, City }  from 'country-state-city';
 
 const ShippingInfo = () => {
+    const State = require('country-state-city').State
+    const states = State.getStatesOfCountry('US');
+
     return (
         <div className={CheckoutCSS.shippingInfo}>
             <h2>Shipping Info</h2>
@@ -20,7 +24,11 @@ const ShippingInfo = () => {
             <select id="state" required defaultValue="">
                 <option value="" disabled hidden>State*</option>
                 <option value="" disabled>Select a State</option>
-                <option value="california">California</option>
+                {
+                    states.map((state) => (
+                        <option key={state.name} value="california">{state.name}</option>
+                    ))
+                }
             </select>
         </div>
     );
@@ -153,11 +161,16 @@ const Checkout = () => {
             .then(data => setProducts(data))
     },[loadProducts])
 
+    const handleSubmit = () => {
+        navigate('/confirmation'); 
+        setFinalOrder(cartItems);
+    }
+
     return (
         <>
             <Header />
             <main className={CheckoutCSS.checkout}>
-                <form id="checkout-form" className={CheckoutCSS.form}>
+                <form id="checkout-form" className={CheckoutCSS.form} onSubmit={() => handleSubmit()}>
                     <ShippingInfo />
                     
                     <ContactInfo />
@@ -172,7 +185,7 @@ const Checkout = () => {
                 <div>
                     <OrderSummary
                         shippingCost={shippingCost}
-                        btn={<button form="checkout-form" type="submit" onSubmit={() => {navigate('/confirmation'); setFinalOrder(cartItems);}}>SUBMIT ORDER</button>}
+                        btn={<button form="checkout-form" type="submit">SUBMIT ORDER</button>}
                     />
 
                     <div className={CheckoutCSS.items}>

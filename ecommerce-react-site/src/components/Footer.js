@@ -9,7 +9,6 @@ const Footer = () => {
                 <h5>Benjamin Pham &copy; 2023</h5>
                 <a href="https://github.com/BenPham14" target="_blank"><AiFillGithub /></a>
             </div>
-            
         </footer>
     );
 }
