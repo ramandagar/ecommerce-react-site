@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import heroPhoto from "../assets/clothes_2.jpeg";
 import mensClothing from "../assets/mens_clothing.png";
 import womensClothing from "../assets/womens_clothing.png";
-import electronics from "../assets/electronics.avif";
+import electronics from "../assets/electronics.jpeg";
 import allClothing from "../assets/all_clothing_2.webp";
 import HomeCSS from "../styles/Home.module.css";
 import { useNavigate } from "react-router-dom";
