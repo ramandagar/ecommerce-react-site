@@ -1,5 +1,5 @@
 # Ecommerce Website
-This is an ecommerce site. The purpose of this project was to learn React.js and deploy a site for the first time. 
+This is an e-commerce site. The purpose of this project was to learn React.js and deploy a site for the first time. 
 
 https://ecommerce-site-by-ben.netlify.app/
 
@@ -16,9 +16,52 @@ https://ecommerce-site-by-ben.netlify.app/
   <img src="https://github.com/BenPham14/ecommerce-react-site/assets/97713069/1b547836-ffdb-4ebd-888c-0780125abaca" alt="" width="100px" height="100px"/>
   <img src="https://github.com/BenPham14/ecommerce-react-site/assets/97713069/4ed84873-7a61-42e2-a5d4-51de88b5962b" alt="" width="100px" height="100px"/>
 </div>
+Description:
+This is an E-Commerce web application built using React.js, allowing users to browse through a variety of products, add items to their cart, and proceed to checkout. The application provides a seamless and user-friendly shopping experience with interactive features and responsive design.
 
-### Mobile:
-<img src="https://github.com/BenPham14/ecommerce-react-site/assets/97713069/bf38dda1-ed7a-4d04-bcb1-b4509d656e03" alt="" width="100px" height="100px"/>
+Table of Contents:
 
-<img src="https://github.com/BenPham14/ecommerce-react-site/assets/97713069/22449ffd-2fd2-4c83-987e-785d27377879" alt="" width="100px" height="100px"/>
+Demo
+Features
+Installation
+Usage
+Technologies Used
+Contributing
+License
+Demo:
+Provide a live demo or a link to the hosted application if available.
+
+Features:
+
+User authentication and account creation.
+Product catalog with categories and search functionality.
+Product details page with images, description, and specifications.
+Shopping cart to add and remove items.
+Checkout process with address and payment information.
+Order history for registered users.
+Responsive design for optimal viewing on various devices.
+Installation:
+
+Clone the repository: git clone https://github.com/your-username/e-commerce-app.git
+Change into the project directory: cd e-commerce-app
+Install dependencies: npm install
+Usage:
+
+Run the development server: npm start
+Open your web browser and navigate to http://localhost:3000 to access the application.
+Technologies Used:
+
+React.js: Frontend library for building user interfaces.
+Redux: State management for managing application data.
+React Router: For client-side routing and navigation.
+Axios: To handle HTTP requests to the backend server.
+CSS3: Styling and layout of the application.
+Contributing:
+If you wish to contribute to the project, please follow these steps:
+
+Fork the repository.
+Create a new branch: git checkout -b feature/your-feature
+Make your changes and commit them: git commit -m "Add your message"
+Push the changes to your forked repository: git push origin feature/your-feature
+Open a pull request to the original repository.
 
