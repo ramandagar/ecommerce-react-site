@@ -3,6 +3,7 @@
     width: 100%;
     z-index: 1;
     background-color: white;
+    color: black;
 }
 
 .header > div {
@@ -28,10 +29,6 @@ nav > * {
     display: flex;
     gap: 60px;
     margin: 0;
-}
-
-.header {
-    color: black;
 }
 
 .icons {
@@ -67,6 +64,9 @@ nav > * {
     color: black;
     width: 20px;
     height: auto;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
 #order {

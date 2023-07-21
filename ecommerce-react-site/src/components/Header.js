@@ -41,7 +41,7 @@ const Header = () => {
                     <RxHamburgerMenu id={HeaderCSS.menu} onClick={() => setToggleDropDown(!toggleDropDown)}/>
                     {/* <BsReceipt id={HeaderCSS.order}/> */}
                     <div onClick={() => navigate('/cart')}>
-                        <PiBag style={{display: "flex"}} id={HeaderCSS.cart}/>
+                        <PiBag id={HeaderCSS.cart}/>
                         {
                             getTotalCartItems() !== 0 && <p id={HeaderCSS.count}>{getTotalCartItems()}</p>
                         }

@@ -40,7 +40,11 @@
 .item button {
     text-align: center;
     border: none;
-    background: white
+    background: white;
+}
+
+.item input {
+    width: 100%;
 }
 
 .item button {
@@ -63,6 +67,13 @@
 
 .item p {
     margin: 0;
+}
+
+@media only screen and (max-width: 450px) {
+    .item p,
+    .item input {
+        font-size: 0.75rem;
+    }
 }
 
 @media only screen and (min-width: 768px) {

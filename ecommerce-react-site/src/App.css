@@ -3,6 +3,7 @@
 * {
     box-sizing: border-box;
     font-family: Poppins;
+    color: black;
 }
 
 header .active {
@@ -25,4 +26,8 @@ main {
     margin: 0 auto;
     max-width: 1360px;
     min-height: 88vh;
+}
+
+select {
+    background-color: white;
 }
